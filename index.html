@@ -4,375 +4,245 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Liam | Mi primer añito</title>
+<title>Mi primer añito — Liam Benítez</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Fredoka',sans-serif;
-    color:#31533a;
-    background:#dfeccb;
-    overflow-x:hidden;
-}
-
-:root{
-    --verde:#315f3c;
-    --verde2:#527c45;
-    --verde3:#759c5b;
-    --verde-suave:#e5f0d6;
-    --amarillo:#f4d35e;
-    --amarillo2:#ffe99a;
-    --blanco:#fffdf5;
-    --marron:#765438;
-}
-
-/* =========================
-   FONDO RURAL
-========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-10;
-
-    background:
-        radial-gradient(circle at 15% 15%,rgba(255,255,255,.8),transparent 20%),
-        radial-gradient(circle at 85% 20%,rgba(244,211,94,.20),transparent 20%),
-        linear-gradient(
-            180deg,
-            #eef7df 0%,
-            #dcebc8 45%,
-            #c7dda9 100%
-        );
-}
-
-/* =========================
-   GLOBOS
-========================= */
-
-.globo{
-    position:fixed;
-    z-index:3;
-    pointer-events:none;
-    font-size:36px;
-    animation:flotarGlobo 7s ease-in-out infinite;
-    filter:drop-shadow(0 4px 5px rgba(0,0,0,.15));
-}
-
-.globo1{
-    left:3%;
-    top:8%;
-}
-
-.globo2{
-    right:5%;
-    top:15%;
-    animation-delay:1s;
-}
-
-.globo3{
-    left:7%;
-    top:48%;
-    animation-delay:2s;
-}
-
-.globo4{
-    right:7%;
-    top:65%;
-    animation-delay:3s;
-}
-
-.globo5{
-    left:46%;
-    top:4%;
-    animation-delay:4s;
-}
-
-.globo6{
-    right:30%;
-    top:38%;
-    animation-delay:1.7s;
-}
-
-@keyframes flotarGlobo{
-
-    0%,100%{
-        transform:translateY(0) rotate(-5deg);
-    }
-
-    50%{
-        transform:translateY(-35px) rotate(6deg);
-    }
-
-}
-
-/* =========================
-   BRILLOS
-========================= */
-
-.brillo{
-    position:fixed;
-    z-index:4;
-    pointer-events:none;
-    color:#ffe76b;
-    font-size:24px;
-    animation:brillo 2.8s ease-in-out infinite;
-}
-
-.brillo1{
-    top:20%;
-    left:16%;
-}
-
-.brillo2{
-    top:28%;
-    right:15%;
-    animation-delay:.7s;
-}
-
-.brillo3{
-    top:55%;
-    left:28%;
-    animation-delay:1.2s;
-}
-
-.brillo4{
-    top:70%;
-    right:25%;
-    animation-delay:1.8s;
-}
-
-.brillo5{
-    top:40%;
-    left:65%;
-    animation-delay:2.3s;
-}
-
-@keyframes brillo{
-
-    0%,100%{
-        opacity:.2;
-        transform:scale(.6) rotate(0);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.35) rotate(20deg);
-        text-shadow:
-            0 0 7px #fff,
-            0 0 18px #f4d35e;
-    }
-
-}
-
-/* =========================
-   HOJAS
-========================= */
-
-.hoja{
-    position:fixed;
-    z-index:2;
-    pointer-events:none;
-    opacity:.45;
-    font-size:28px;
-    animation:hojaFlota 9s ease-in-out infinite;
-}
-
-.hoja1{
-    top:30%;
-    left:4%;
-}
-
-.hoja2{
-    top:75%;
-    right:5%;
-    animation-delay:2s;
-}
-
-.hoja3{
-    top:50%;
-    right:3%;
-    animation-delay:4s;
-}
-
-@keyframes hojaFlota{
-
-    0%,100%{
-        transform:translateY(0) rotate(-10deg);
-    }
-
-    50%{
-        transform:translateY(-25px) rotate(15deg);
-    }
-
+  font-family:'Baloo 2',sans-serif;
+  background:
+    radial-gradient(circle at top,#ffffff 0%,#f7fff2 35%,#e4f6d7 100%);
+  color:#28552c;
+  overflow-x:hidden;
 }
 
 /* =========================
    PORTADA
 ========================= */
 
-.portada{
-    min-height:100vh;
-    width:100%;
-    position:relative;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
-
-    background:
-        linear-gradient(
-            rgba(35,73,40,.20),
-            rgba(20,55,30,.48)
-        ),
-        url("./IMG-20260923-WA0014.jpg");
-
-    background-size:cover;
-    background-position:center;
+#portada{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#dff2d3;
 }
 
-.portada::before{
-    content:"";
-    position:absolute;
-    inset:0;
+.portada-foto{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  filter:brightness(.78);
+}
 
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 20%,
-            rgba(0,0,0,.38)
-        );
+/* capa suave para que el texto se lea,
+   sin tapar la cara */
+.portada-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.05) 0%,
+      rgba(0,0,0,.02) 45%,
+      rgba(0,0,0,.48) 100%
+    );
 }
 
 .portada-contenido{
-    position:relative;
-    z-index:10;
-    text-align:center;
-    padding:25px;
+  position:relative;
+  z-index:5;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  text-align:center;
+  padding:30px 20px 55px;
 }
 
-.portada-pequeno{
-    color:white;
-    font-size:1rem;
-    letter-spacing:4px;
-    text-transform:uppercase;
-
-    text-shadow:
-        0 2px 8px rgba(0,0,0,.8);
+/* Las letras quedan abajo,
+   dejando libre la cara de Liam */
+.portada-superior{
+  position:absolute;
+  top:34px;
+  left:0;
+  right:0;
+  text-align:center;
 }
 
-.portada h1{
-    margin-top:8px;
-
-    font-family:'Baloo 2',sans-serif;
-    font-size:clamp(4rem,16vw,7rem);
-    line-height:.9;
-    font-weight:800;
-
-    color:white;
-
-    text-shadow:
-        3px 3px 0 var(--verde),
-        0 5px 15px rgba(0,0,0,.65);
+.portada-superior span{
+  display:inline-block;
+  background:rgba(255,255,255,.88);
+  color:#39713b;
+  padding:8px 18px;
+  border-radius:30px;
+  font-size:18px;
+  font-weight:700;
+  box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
-.portada-subtitulo{
-    margin-top:10px;
-
-    font-family:'Great Vibes',cursive;
-    font-size:3.2rem;
-
-    color:white;
-
-    text-shadow:
-        0 3px 10px rgba(0,0,0,.8);
+.nombre{
+  font-family:'Great Vibes',cursive;
+  font-size:72px;
+  line-height:1;
+  color:white;
+  text-shadow:
+    0 4px 12px rgba(0,0,0,.55),
+    0 0 10px rgba(255,255,255,.3);
+  margin-bottom:5px;
 }
 
-.numero{
-    width:72px;
-    height:72px;
+.edad-texto{
+  color:white;
+  font-family:'Fredoka',sans-serif;
+  font-size:27px;
+  font-weight:700;
+  text-shadow:0 3px 8px rgba(0,0,0,.6);
+}
 
-    margin:15px auto 0;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    border-radius:50%;
-
-    background:var(--amarillo);
-    color:var(--verde);
-
-    font-size:2.7rem;
-    font-weight:800;
-
-    border:4px solid white;
-
-    box-shadow:
-        0 0 0 5px rgba(244,211,94,.25),
-        0 0 30px rgba(244,211,94,.8);
+.numero-uno{
+  margin:7px auto 18px;
+  width:68px;
+  height:68px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#ffd83d;
+  color:#39713b;
+  border:4px solid white;
+  font-family:'Fredoka',sans-serif;
+  font-size:42px;
+  font-weight:800;
+  box-shadow:0 7px 20px rgba(0,0,0,.22);
 }
 
 .boton-abrir{
-    margin-top:30px;
-
-    padding:16px 35px;
-
-    border:none;
-    border-radius:40px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff3aa,
-            #f4d35e,
-            #e6bd3c
-        );
-
-    color:var(--verde);
-
-    font-family:'Fredoka',sans-serif;
-    font-size:1rem;
-    font-weight:700;
-
-    letter-spacing:1.5px;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.25),
-        0 0 25px rgba(244,211,94,.7);
-
-    animation:pulso 2s infinite;
+  border:none;
+  background:linear-gradient(135deg,#fff,#fff7a8);
+  color:#39713b;
+  font-family:'Fredoka',sans-serif;
+  font-size:18px;
+  font-weight:800;
+  padding:14px 25px;
+  border-radius:50px;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  cursor:pointer;
+  animation:pulso 1.8s infinite;
 }
 
 @keyframes pulso{
+  0%,100%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.06);
+  }
+}
 
-    0%,100%{
-        transform:scale(1);
-    }
+/* =========================
+   DECORACIÓN
+========================= */
 
-    50%{
-        transform:scale(1.05);
-    }
+.globo{
+  position:fixed;
+  z-index:20;
+  width:42px;
+  height:54px;
+  border-radius:50%;
+  opacity:.9;
+  animation:flotar 7s ease-in-out infinite;
+  pointer-events:none;
+}
 
+.globo::after{
+  content:"";
+  position:absolute;
+  width:1px;
+  height:55px;
+  background:rgba(80,80,80,.35);
+  left:50%;
+  top:52px;
+}
+
+.globo1{
+  left:5%;
+  top:15%;
+  background:#ffd83d;
+}
+
+.globo2{
+  right:7%;
+  top:28%;
+  background:#7acb5b;
+  animation-delay:1s;
+}
+
+.globo3{
+  left:9%;
+  bottom:18%;
+  background:#ffffff;
+  animation-delay:2s;
+}
+
+.globo4{
+  right:9%;
+  bottom:13%;
+  background:#f4d35e;
+  animation-delay:3s;
+}
+
+@keyframes flotar{
+  0%,100%{
+    transform:translateY(0) rotate(-3deg);
+  }
+  50%{
+    transform:translateY(-25px) rotate(4deg);
+  }
+}
+
+.brillo{
+  position:fixed;
+  z-index:15;
+  color:#ffd83d;
+  font-size:22px;
+  pointer-events:none;
+  animation:brillar 2.5s ease-in-out infinite;
+}
+
+.b1{top:12%;left:20%;}
+.b2{top:38%;right:18%;animation-delay:.7s;}
+.b3{top:70%;left:16%;animation-delay:1.3s;}
+.b4{bottom:12%;right:20%;animation-delay:1.8s;}
+
+@keyframes brillar{
+  0%,100%{
+    opacity:.25;
+    transform:scale(.7) rotate(0);
+  }
+  50%{
+    opacity:1;
+    transform:scale(1.2) rotate(20deg);
+  }
 }
 
 /* =========================
@@ -380,142 +250,50 @@ body::before{
 ========================= */
 
 #invitacion{
-    display:none;
+  display:none;
 }
 
 #invitacion.activa{
-    display:block;
-    animation:entrada 1s ease;
+  display:block;
 }
 
-@keyframes entrada{
-
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
+.seccion{
+  position:relative;
+  max-width:900px;
+  margin:auto;
+  padding:70px 20px;
+  text-align:center;
 }
 
-.bloque{
-    width:92%;
-    max-width:850px;
-    margin:0 auto 70px;
-    text-align:center;
+.tarjeta{
+  background:rgba(255,255,255,.9);
+  border-radius:30px;
+  padding:35px 22px;
+  box-shadow:0 12px 35px rgba(58,103,45,.14);
+  border:2px solid rgba(126,191,88,.25);
 }
 
 .titulo{
-    font-family:'Great Vibes',cursive;
-    font-size:4rem;
-    color:var(--verde);
-
-    text-shadow:
-        0 2px white,
-        0 0 10px rgba(244,211,94,.45);
+  font-family:'Fredoka',sans-serif;
+  font-size:42px;
+  color:#3b783e;
+  margin-bottom:15px;
 }
 
 .subtitulo{
-    margin-top:10px;
-    color:#607c50;
-    font-size:1.15rem;
-    line-height:1.7;
+  font-size:21px;
+  color:#557957;
+  line-height:1.5;
 }
 
-.adorno{
-    color:var(--amarillo);
-    font-size:1.5rem;
-    letter-spacing:8px;
-    margin:15px 0;
-}
-
-/* =========================
-   PRIMER BLOQUE
-========================= */
-
-.primer-anito{
-    padding:55px 20px;
-
-    background:rgba(255,253,245,.93);
-
-    border-radius:38px;
-
-    border:2px solid rgba(117,156,91,.3);
-
-    box-shadow:
-        0 15px 40px rgba(44,75,38,.15);
-}
-
-.primer-anito img{
-    width:100%;
-    max-width:400px;
-    height:450px;
-
-    object-fit:cover;
-
-    border-radius:30px;
-
-    border:8px solid white;
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.18);
-}
-
-.primer-texto{
-    margin-top:30px;
-}
-
-.primer-texto h2{
-    font-family:'Great Vibes',cursive;
-    font-size:3.5rem;
-    color:var(--verde);
-}
-
-.primer-texto p{
-    max-width:650px;
-    margin:15px auto 0;
-
-    font-size:1.2rem;
-    line-height:1.8;
-}
-
-/* =========================
-   DATOS
-========================= */
-
-.datos{
-    padding:55px 20px;
-
-    background:#f9fff2;
-
-    border-radius:38px;
-
-    box-shadow:
-        0 15px 40px rgba(44,75,38,.13);
-}
-
-.dato{
-    margin-bottom:50px;
-}
-
-.dato:last-child{
-    margin-bottom:0;
-}
-
-.dato h3{
-    font-family:'Great Vibes',cursive;
-    color:var(--verde);
-    font-size:3.2rem;
-}
-
-.dato p{
-    margin-top:12px;
-    font-size:1.18rem;
-    line-height:1.7;
+.foto-liam{
+  width:100%;
+  max-width:430px;
+  border-radius:28px;
+  display:block;
+  margin:30px auto;
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+  border:6px solid white;
 }
 
 /* =========================
@@ -523,80 +301,44 @@ body::before{
 ========================= */
 
 .calendario{
-    padding:55px 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #e3efd5
-        );
-
-    border-radius:38px;
-
-    box-shadow:
-        0 15px 40px rgba(44,75,38,.14);
-
-    border:2px solid rgba(117,156,91,.35);
+  max-width:390px;
+  margin:25px auto;
+  background:white;
+  padding:20px;
+  border-radius:25px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
-.calendario-mes{
-    margin:25px auto 0;
-    max-width:480px;
-
-    background:white;
-    border-radius:25px;
-
-    padding:20px;
-
-    box-shadow:
-        0 8px 25px rgba(44,75,38,.12);
+.mes{
+  font-family:'Fredoka',sans-serif;
+  font-size:28px;
+  color:#3d783f;
+  margin-bottom:15px;
 }
 
-.calendario-mes h3{
-    font-size:1.8rem;
-    color:var(--verde);
-    margin-bottom:15px;
-}
-
-.dias-semana,
 .dias{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
-    gap:6px;
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:7px;
+  font-size:14px;
 }
 
-.dias-semana span{
-    font-size:.72rem;
-    font-weight:700;
-    color:#759060;
+.dias div{
+  padding:9px 2px;
+  border-radius:12px;
 }
 
-.dias span{
-    min-height:38px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:10px;
-
-    font-size:.9rem;
-    color:#52694b;
+.encabezado{
+  font-weight:800;
+  color:#6d9565;
 }
 
-.dias span.vacio{
-    visibility:hidden;
-}
-
-.dias span.destacado{
-    background:var(--amarillo);
-    color:var(--verde);
-    font-weight:800;
-
-    box-shadow:
-        0 0 0 3px rgba(244,211,94,.3),
-        0 5px 12px rgba(0,0,0,.12);
+.dia-especial{
+  background:#ffd83d;
+  color:#315b31;
+  font-weight:900;
+  transform:scale(1.12);
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 
 /* =========================
@@ -604,43 +346,51 @@ body::before{
 ========================= */
 
 .reloj{
-    padding:55px 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #315f3c,
-            #527c45
-        );
-
-    color:white;
-
-    border-radius:38px;
-
-    box-shadow:
-        0 15px 40px rgba(44,75,38,.22);
+  width:145px;
+  height:145px;
+  border:8px solid #6fbd57;
+  border-radius:50%;
+  margin:25px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
+  position:relative;
 }
 
-.reloj .titulo{
-    color:white;
-    text-shadow:none;
+.reloj::before{
+  content:"";
+  width:5px;
+  height:42px;
+  background:#39713b;
+  position:absolute;
+  bottom:50%;
+  left:50%;
+  transform-origin:bottom;
+  transform:rotate(0deg);
+  border-radius:5px;
 }
 
-.hora-grande{
-    margin-top:25px;
-
-    color:var(--amarillo);
-
-    font-size:4rem;
-    font-weight:800;
-
-    letter-spacing:4px;
+.reloj::after{
+  content:"";
+  width:5px;
+  height:31px;
+  background:#f0bd18;
+  position:absolute;
+  bottom:50%;
+  left:50%;
+  transform-origin:bottom;
+  transform:rotate(90deg);
+  border-radius:5px;
 }
 
-.hora-texto{
-    margin-top:8px;
-    font-size:.9rem;
-    letter-spacing:4px;
+.hora{
+  font-family:'Fredoka',sans-serif;
+  font-size:25px;
+  font-weight:800;
+  color:#39713b;
+  margin-top:180px;
 }
 
 /* =========================
@@ -648,39 +398,29 @@ body::before{
 ========================= */
 
 .countdown{
-    margin-top:30px;
-
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  max-width:500px;
+  margin:30px auto;
 }
 
-.caja-tiempo{
-    width:82px;
-
-    padding:18px 5px;
-
-    background:white;
-
-    border-radius:18px;
-
-    border:2px solid var(--amarillo);
-
-    box-shadow:
-        0 8px 20px rgba(44,75,38,.13);
+.count-box{
+  background:#39713b;
+  color:white;
+  padding:15px 5px;
+  border-radius:18px;
+  box-shadow:0 7px 18px rgba(0,0,0,.12);
 }
 
-.caja-tiempo strong{
-    display:block;
-    font-size:2rem;
-    color:var(--verde);
+.count-box strong{
+  display:block;
+  font-size:30px;
+  font-family:'Fredoka',sans-serif;
 }
 
-.caja-tiempo span{
-    font-size:.65rem;
-    text-transform:uppercase;
-    color:#777;
+.count-box span{
+  font-size:14px;
 }
 
 /* =========================
@@ -688,294 +428,115 @@ body::before{
 ========================= */
 
 .animales{
-    padding:55px 15px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #fffef8,
-            #e2efd4
-        );
-
-    border-radius:38px;
-
-    box-shadow:
-        0 15px 40px rgba(44,75,38,.13);
-}
-
-.animales-grid{
-    margin-top:30px;
-
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:18px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  max-width:600px;
+  margin:30px auto;
 }
 
 .animal{
-    width:80px;
-    height:80px;
-
-    border-radius:50%;
-
-    background:white;
-
-    border:3px solid var(--amarillo);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:42px;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 7px 18px rgba(0,0,0,.12);
-
-    transition:.25s;
+  background:#fff;
+  border-radius:25px;
+  padding:18px 10px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,.1);
+  transition:.25s;
+  user-select:none;
 }
 
 .animal:hover{
-    transform:translateY(-9px) rotate(-4deg) scale(1.08);
+  transform:translateY(-7px) rotate(-2deg);
 }
 
 .animal:active{
-    transform:scale(.88);
+  transform:scale(.92);
 }
 
-/* =========================
-   MENSAJE
-========================= */
-
-.mensaje{
-    padding:60px 20px;
-
-    background:#fffdf5;
-
-    border-radius:38px;
-
-    box-shadow:
-        0 15px 40px rgba(44,75,38,.13);
+.animal-emoji{
+  font-size:55px;
+  display:block;
 }
 
-.mensaje p{
-    max-width:650px;
-    margin:20px auto 0;
-
-    font-size:1.25rem;
-    line-height:1.8;
-}
-
-/* =========================
-   FOTO LIAM MEDIO
-========================= */
-
-.foto-medio{
-    overflow:hidden;
-
-    border-radius:38px;
-
-    background:white;
-
-    box-shadow:
-        0 18px 45px rgba(0,0,0,.18);
-}
-
-.foto-medio img{
-    width:100%;
-    height:550px;
-
-    display:block;
-
-    object-fit:cover;
+.animal span{
+  font-weight:700;
+  color:#477048;
 }
 
 /* =========================
    UBICACIÓN
 ========================= */
 
-.ubicacion{
-    padding:55px 20px;
-
-    background:#f9fff1;
-
-    border-radius:38px;
-
-    box-shadow:
-        0 15px 40px rgba(44,75,38,.13);
-}
-
-.direccion{
-    margin:22px 0;
-
-    font-size:2rem;
-    font-weight:700;
-    color:var(--verde);
-}
-
 .mapa{
-    width:100%;
-    height:330px;
-
-    border:0;
-
-    border-radius:25px;
-
-    margin-top:25px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.15);
+  width:100%;
+  height:300px;
+  border:0;
+  border-radius:25px;
+  margin:25px 0;
+  box-shadow:0 10px 25px rgba(0,0,0,.13);
 }
 
 .boton{
-    display:inline-block;
+  display:inline-block;
+  text-decoration:none;
+  background:#39713b;
+  color:white;
+  padding:14px 25px;
+  border-radius:50px;
+  font-weight:800;
+  box-shadow:0 7px 20px rgba(0,0,0,.15);
+  transition:.2s;
+}
 
-    margin-top:22px;
-
-    padding:14px 27px;
-
-    border-radius:30px;
-
-    background:var(--verde);
-
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:700;
-
-    box-shadow:
-        0 8px 20px rgba(49,95,60,.2);
+.boton:hover{
+  transform:translateY(-3px);
 }
 
 /* =========================
    WHATSAPP
 ========================= */
 
-.confirmacion{
-    padding:55px 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #315f3c,
-            #5b814b
-        );
-
-    color:white;
-
-    border-radius:38px;
-
-    box-shadow:
-        0 15px 40px rgba(44,75,38,.2);
-}
-
-.confirmacion .titulo{
-    color:white;
-    text-shadow:none;
-}
-
-.confirmacion p{
-    max-width:600px;
-    margin:15px auto;
-
-    font-size:1.2rem;
-    line-height:1.7;
-}
-
-.boton-confirmar{
-    display:inline-block;
-
-    margin-top:15px;
-
-    padding:15px 30px;
-
-    border-radius:30px;
-
-    background:#25d366;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:700;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.2);
+.whatsapp{
+  background:#25d366;
+  color:white;
+  text-decoration:none;
+  display:inline-block;
+  padding:15px 27px;
+  border-radius:50px;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 8px 22px rgba(37,211,102,.3);
 }
 
 /* =========================
-   FOTO FINAL GRANJA
+   FINAL
 ========================= */
 
 .final{
-    overflow:hidden;
-
-    border-radius:38px;
-
-    background:white;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.2);
+  padding:70px 20px 100px;
+  text-align:center;
 }
 
-.final img{
-    width:100%;
-
-    display:block;
-
-    max-height:620px;
-
-    object-fit:cover;
-}
-
-.final-texto{
-    padding:35px 15px 50px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #315f3c,
-            #527c45
-        );
-}
-
-.final-texto h2{
-    font-family:'Great Vibes',cursive;
-
-    font-size:4.7rem;
-
-    color:white;
-
-    text-shadow:
-        0 3px 8px rgba(0,0,0,.25);
-}
-
-.final-texto p{
-    margin-top:10px;
-
-    color:white;
-
-    font-size:1.1rem;
+.esperamos{
+  font-family:'Great Vibes',cursive;
+  font-size:58px;
+  color:#39713b;
+  text-shadow:0 3px 10px rgba(0,0,0,.1);
 }
 
 /* =========================
    ANIMACIONES
 ========================= */
 
-.aparecer{
-    opacity:0;
-    transform:translateY(30px);
-
-    transition:
-        opacity .9s ease,
-        transform .9s ease;
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s ease;
 }
 
-.aparecer.visible{
-    opacity:1;
-    transform:translateY(0);
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* =========================
@@ -984,579 +545,471 @@ body::before{
 
 @media(max-width:600px){
 
-    .titulo{
-        font-size:3.4rem;
-    }
+  .portada-contenido{
+    padding-bottom:45px;
+  }
 
-    .portada h1{
-        font-size:4.5rem;
-    }
+  .portada-superior{
+    top:25px;
+  }
 
-    .portada-subtitulo{
-        font-size:2.6rem;
-    }
+  .portada-superior span{
+    font-size:15px;
+    padding:7px 14px;
+  }
 
-    .primer-anito img{
-        height:400px;
-    }
+  .nombre{
+    font-size:62px;
+  }
 
-    .primer-texto h2{
-        font-size:3.1rem;
-    }
+  .edad-texto{
+    font-size:23px;
+  }
 
-    .hora-grande{
-        font-size:3rem;
-    }
+  .numero-uno{
+    width:60px;
+    height:60px;
+    font-size:37px;
+  }
 
-    .caja-tiempo{
-        width:70px;
-    }
+  .boton-abrir{
+    font-size:16px;
+    padding:13px 21px;
+  }
 
-    .final-texto h2{
-        font-size:3.9rem;
-    }
+  .titulo{
+    font-size:35px;
+  }
 
-    .globo{
-        font-size:30px;
-    }
+  .subtitulo{
+    font-size:19px;
+  }
 
+  .countdown{
+    gap:6px;
+  }
+
+  .count-box strong{
+    font-size:24px;
+  }
+
+  .count-box span{
+    font-size:12px;
+  }
+
+  .animales{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .animal-emoji{
+    font-size:48px;
+  }
+
+  .esperamos{
+    font-size:48px;
+  }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- GLOBOS -->
-<div class="globo globo1">🎈</div>
-<div class="globo globo2">🎈</div>
-<div class="globo globo3">🎈</div>
-<div class="globo globo4">🎈</div>
-<div class="globo globo5">🎈</div>
-<div class="globo globo6">🎈</div>
+<!-- PORTADA -->
+<section id="portada">
 
-<!-- BRILLOS -->
-<div class="brillo brillo1">✦</div>
-<div class="brillo brillo2">✦</div>
-<div class="brillo brillo3">✨</div>
-<div class="brillo brillo4">✦</div>
-<div class="brillo brillo5">✨</div>
+  <img
+    class="portada-foto"
+    src="IMG-20260923-WA0014.jpg"
+    alt="Liam"
+  >
 
-<!-- HOJAS -->
-<div class="hoja hoja1">🍃</div>
-<div class="hoja hoja2">🌿</div>
-<div class="hoja hoja3">🍃</div>
+  <div class="portada-overlay"></div>
 
+  <div class="portada-superior">
+    <span>🌾 Una aventura muy especial 🌾</span>
+  </div>
 
-<!-- =========================
-     PORTADA
-========================= -->
+  <div class="portada-contenido">
 
-<section class="portada">
+    <div class="nombre">Liam</div>
 
-    <div class="portada-contenido">
-
-        <div class="portada-pequeno">
-            Una aventura muy especial
-        </div>
-
-        <h1>
-            Liam
-        </h1>
-
-        <div class="portada-subtitulo">
-            Mi primer añito
-        </div>
-
-        <div class="numero">
-            1
-        </div>
-
-        <button
-            class="boton-abrir"
-            onclick="abrirInvitacion()">
-
-            ✨ ABRIR INVITACIÓN ✨
-
-        </button>
-
+    <div class="edad-texto">
+      Mi primer añito
     </div>
 
+    <div class="numero-uno">
+      1
+    </div>
+
+    <button
+      class="boton-abrir"
+      onclick="abrirInvitacion()"
+    >
+      ✨ ABRIR INVITACIÓN ✨
+    </button>
+
+  </div>
 </section>
 
 
-<!-- =========================
-     INVITACIÓN
-========================= -->
+<!-- DECORACIÓN -->
+<div class="globo globo1"></div>
+<div class="globo globo2"></div>
+<div class="globo globo3"></div>
+<div class="globo globo4"></div>
 
+<div class="brillo b1">✨</div>
+<div class="brillo b2">⭐</div>
+<div class="brillo b3">✨</div>
+<div class="brillo b4">⭐</div>
+
+
+<!-- INVITACIÓN -->
 <main id="invitacion">
 
+  <!-- MÚSICA -->
+  <iframe
+    id="musica"
+    width="1"
+    height="1"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    style="position:absolute;left:-9999px;"
+  ></iframe>
 
-<!-- PRIMER BLOQUE -->
 
-<section class="bloque aparecer">
+  <!-- PRESENTACIÓN -->
+  <section class="seccion reveal">
 
-    <div class="primer-anito">
+    <div class="tarjeta">
 
-        <div class="adorno">
-            ✦ ✦ ✦
-        </div>
+      <h1 class="titulo">
+        Mi primer añito 💚
+      </h1>
 
-        <div class="titulo">
-            Mi primer añito
-        </div>
-
-        <img
-            src="./IMG-20260923-WA0014.jpg"
-            alt="Liam">
-
-        <div class="primer-texto">
-
-            <h2>
-                Quiero festejar y compartir
-                este día tan especial con vos
-            </h2>
-
-            <p>
-                Un añito lleno de amor,
-                sonrisas, abrazos y momentos
-                inolvidables.
-            </p>
-
-        </div>
+      <p class="subtitulo">
+        Quiero festejar y compartir este día tan especial con vos.
+      </p>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- DATOS -->
+  <!-- CALENDARIO -->
+  <section class="seccion reveal">
 
-<section class="bloque aparecer">
+    <div class="tarjeta">
 
-    <div class="datos">
+      <h2 class="titulo">
+        📅 ¿Cuándo?
+      </h2>
 
-        <div class="dato">
+      <div class="calendario">
 
-            <h3>
-                Una aventura especial
-            </h3>
-
-            <p>
-                Nos espera una celebración
-                inspirada en el campo,
-                llena de animalitos,
-                juegos y mucha diversión.
-            </p>
-
+        <div class="mes">
+          Enero 2027
         </div>
 
-        <div class="dato">
+        <div class="dias">
 
-            <h3>
-                ¡Quiero compartirla con vos!
-            </h3>
+          <div class="encabezado">L</div>
+          <div class="encabezado">M</div>
+          <div class="encabezado">X</div>
+          <div class="encabezado">J</div>
+          <div class="encabezado">V</div>
+          <div class="encabezado">S</div>
+          <div class="encabezado">D</div>
 
-            <p>
-                Tu compañía hará que este
-                primer añito sea todavía
-                más especial.
-            </p>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+          <div>7</div>
+          <div>8</div>
+          <div>9</div>
+          <div>10</div>
+
+          <div>11</div>
+          <div>12</div>
+          <div class="dia-especial">13</div>
+          <div>14</div>
+          <div>15</div>
+          <div>16</div>
+          <div>17</div>
+
+          <div>18</div>
+          <div>19</div>
+          <div>20</div>
+          <div>21</div>
+          <div>22</div>
+          <div>23</div>
+          <div>24</div>
+
+          <div>25</div>
+          <div>26</div>
+          <div>27</div>
+          <div>28</div>
+          <div>29</div>
+          <div>30</div>
+          <div>31</div>
 
         </div>
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- CALENDARIO -->
+  <!-- HORA -->
+  <section class="seccion reveal">
 
-<section class="bloque aparecer">
+    <div class="tarjeta">
 
-    <div class="calendario">
+      <h2 class="titulo">
+        🕛 ¿A qué hora?
+      </h2>
 
-        <div class="titulo">
-            Guardá la fecha
+      <div class="reloj">
+        <div class="hora">
+          12:00 hs
         </div>
-
-        <div class="adorno">
-            🌿 ✦ 🌿
-        </div>
-
-        <div class="calendario-mes">
-
-            <h3>
-                Enero 2027
-            </h3>
-
-            <div class="dias-semana">
-
-                <span>LUN</span>
-                <span>MAR</span>
-                <span>MIÉ</span>
-                <span>JUE</span>
-                <span>VIE</span>
-                <span>SÁB</span>
-                <span>DOM</span>
-
-            </div>
-
-            <div class="dias">
-
-                <span class="vacio">0</span>
-                <span class="vacio">0</span>
-                <span class="vacio">0</span>
-                <span class="vacio">0</span>
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-
-                <span>4</span>
-                <span>5</span>
-                <span>6</span>
-                <span>7</span>
-                <span>8</span>
-                <span>9</span>
-                <span>10</span>
-
-                <span>11</span>
-                <span>12</span>
-
-                <span class="destacado">
-                    13
-                </span>
-
-                <span>14</span>
-                <span>15</span>
-                <span>16</span>
-                <span>17</span>
-
-                <span>18</span>
-                <span>19</span>
-                <span>20</span>
-                <span>21</span>
-                <span>22</span>
-                <span>23</span>
-                <span>24</span>
-
-                <span>25</span>
-                <span>26</span>
-                <span>27</span>
-                <span>28</span>
-                <span>29</span>
-                <span>30</span>
-                <span>31</span>
-
-            </div>
-
-        </div>
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- RELOJ -->
+  <!-- CUENTA REGRESIVA -->
+  <section class="seccion reveal">
 
-<section class="bloque aparecer">
+    <div class="tarjeta">
 
-    <div class="reloj">
+      <h2 class="titulo">
+        ⏳ Falta poquito
+      </h2>
 
-        <div class="titulo">
-            Nos encontramos a las
+      <div class="countdown">
+
+        <div class="count-box">
+          <strong id="dias">0</strong>
+          <span>Días</span>
         </div>
 
-        <div class="hora-grande">
-            12:00
+        <div class="count-box">
+          <strong id="horas">0</strong>
+          <span>Horas</span>
         </div>
 
-        <div class="hora-texto">
-            HORAS
+        <div class="count-box">
+          <strong id="minutos">0</strong>
+          <span>Minutos</span>
         </div>
+
+        <div class="count-box">
+          <strong id="segundos">0</strong>
+          <span>Segundos</span>
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- CUENTA REGRESIVA -->
+  <!-- ANIMALES -->
+  <section class="seccion reveal">
 
-<section class="bloque aparecer">
+    <div class="tarjeta">
 
-    <div class="contenido">
+      <h2 class="titulo">
+        🐮 Una aventura en la granja
+      </h2>
 
-        <div class="titulo">
-            Falta poquito
+      <p class="subtitulo">
+        Tocá a los animalitos y descubrí sus sonidos 🐷🐔🐴
+      </p>
+
+      <div class="animales">
+
+        <div class="animal" onclick="sonidoAnimal('vaca')">
+          <span class="animal-emoji">🐮</span>
+          <span>Vaca</span>
         </div>
 
-        <p class="subtitulo">
-            La cuenta regresiva para mi gran día.
-        </p>
-
-        <div class="countdown">
-
-            <div class="caja-tiempo">
-                <strong id="dias">00</strong>
-                <span>Días</span>
-            </div>
-
-            <div class="caja-tiempo">
-                <strong id="horas">00</strong>
-                <span>Horas</span>
-            </div>
-
-            <div class="caja-tiempo">
-                <strong id="minutos">00</strong>
-                <span>Minutos</span>
-            </div>
-
-            <div class="caja-tiempo">
-                <strong id="segundos">00</strong>
-                <span>Segundos</span>
-            </div>
-
+        <div class="animal" onclick="sonidoAnimal('cerdo')">
+          <span class="animal-emoji">🐷</span>
+          <span>Chancho</span>
         </div>
+
+        <div class="animal" onclick="sonidoAnimal('gallina')">
+          <span class="animal-emoji">🐔</span>
+          <span>Gallina</span>
+        </div>
+
+        <div class="animal" onclick="sonidoAnimal('oveja')">
+          <span class="animal-emoji">🐑</span>
+          <span>Oveja</span>
+        </div>
+
+        <div class="animal" onclick="sonidoAnimal('caballo')">
+          <span class="animal-emoji">🐴</span>
+          <span>Caballo</span>
+        </div>
+
+        <div class="animal" onclick="sonidoAnimal('pato')">
+          <span class="animal-emoji">🦆</span>
+          <span>Pato</span>
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- ANIMALES -->
+  <!-- MENSAJE -->
+  <section class="seccion reveal">
 
-<section class="bloque aparecer">
+    <div class="tarjeta">
 
-    <div class="animales">
+      <h2 class="titulo">
+        💚 Un año de amor
+      </h2>
 
-        <div class="titulo">
-            ¡Visitá la granjita!
-        </div>
-
-        <p class="subtitulo">
-            Tocá cada animalito y escuchá su sonido.
-        </p>
-
-        <div class="animales-grid">
-
-            <button class="animal" onclick="sonidoVaca()">🐮</button>
-
-            <button class="animal" onclick="sonidoCerdo()">🐷</button>
-
-            <button class="animal" onclick="sonidoGallina()">🐔</button>
-
-            <button class="animal" onclick="sonidoOveja()">🐑</button>
-
-            <button class="animal" onclick="sonidoCaballo()">🐴</button>
-
-            <button class="animal" onclick="sonidoPato()">🦆</button>
-
-        </div>
+      <p class="subtitulo">
+        Un añito lleno de sonrisas, abrazos, juegos y muchísimo amor.
+        Quiero compartir esta aventura con las personas que quiero.
+      </p>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- MENSAJE -->
+  <!-- FOTO DE LIAM -->
+  <section class="seccion reveal">
 
-<section class="bloque aparecer">
+    <div class="tarjeta">
 
-    <div class="mensaje">
-
-        <div class="adorno">
-            🌻 ✦ 🌻
-        </div>
-
-        <div class="titulo">
-            Un año de amor
-        </div>
-
-        <p>
-            Hace un año llegué para llenar
-            nuestras vidas de sonrisas,
-            aventuras y muchísimo amor.
-        </p>
-
-        <p>
-            Ahora quiero celebrar mi primer añito
-            rodeado de las personas que quiero.
-        </p>
+      <img
+        class="foto-liam"
+        src="22632e101f69f3936ba2d1885d7b2582.jpg"
+        alt="Liam"
+      >
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- FOTO DE LIAM EN EL MEDIO -->
+  <!-- UBICACIÓN -->
+  <section class="seccion reveal">
 
-<section class="bloque aparecer">
+    <div class="tarjeta">
 
-    <div class="foto-medio">
+      <h2 class="titulo">
+        📍 ¿Dónde?
+      </h2>
 
-        <img
-            src="./22632e101f69f3936ba2d1885d7b2582.jpg"
-            alt="Liam">
+      <p class="subtitulo">
+        General Paz 4120
+      </p>
 
-    </div>
+      <iframe
+        class="mapa"
+        src="https://www.google.com/maps?q=General+Paz+4120&output=embed"
+        loading="lazy">
+      </iframe>
 
-</section>
-
-
-<!-- UBICACIÓN -->
-
-<section class="bloque aparecer">
-
-    <div class="ubicacion">
-
-        <div class="titulo">
-            ¿Dónde nos encontramos?
-        </div>
-
-        <div class="adorno">
-            🌿 ✦ 🌿
-        </div>
-
-        <div class="direccion">
-            General Paz 4120
-        </div>
-
-        <p>
-            Te esperamos para compartir
-            este día tan especial.
-        </p>
-
-        <iframe
-            class="mapa"
-            src="https://www.google.com/maps?q=General+Paz+4120&output=embed"
-            loading="lazy">
-        </iframe>
-
-        <a
-            class="boton"
-            href="https://www.google.com/maps/search/?api=1&query=General+Paz+4120"
-            target="_blank">
-
-            📍 ABRIR GOOGLE MAPS
-
-        </a>
+      <a
+        class="boton"
+        href="https://www.google.com/maps/search/?api=1&query=General+Paz+4120"
+        target="_blank">
+        📍 VER EN GOOGLE MAPS
+      </a>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- CONFIRMACIÓN -->
+  <!-- CONFIRMACIÓN -->
+  <section class="seccion reveal">
 
-<section class="bloque aparecer">
+    <div class="tarjeta">
 
-    <div class="confirmacion">
+      <h2 class="titulo">
+        💌 Confirmá tu asistencia
+      </h2>
 
-        <div class="titulo">
-            ¿Venís?
-        </div>
+      <p class="subtitulo">
+        ¡Nos encantaría compartir este día con vos!
+      </p>
 
-        <p>
-            Quiero saber si vas a acompañarme
-            en esta celebración tan especial.
-        </p>
+      <br>
 
-        <a
-            class="boton-confirmar"
-            href="https://wa.me/5491136088939?text=Hola!%20Confirmo%20mi%20asistencia%20al%20primer%20añito%20de%20Liam."
-            target="_blank">
-
-            💚 CONFIRMAR POR WHATSAPP
-
-        </a>
+      <a
+        class="whatsapp"
+        href="https://wa.me/541136088939?text=Hola%20%F0%9F%92%9A%20quiero%20confirmar%20mi%20asistencia%20al%20primer%20anito%20de%20Liam."
+        target="_blank">
+        💚 CONFIRMAR POR WHATSAPP
+      </a>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- =========================
-     FOTO FINAL
-     GRANJA DE ZENÓN
-========================= -->
+  <!-- FINAL -->
+  <section class="final reveal">
 
-<section class="bloque aparecer">
+    <div class="brillo b1">✨</div>
+    <div class="brillo b2">⭐</div>
 
-    <div class="final">
+    <h2 class="esperamos">
+      ¡Te esperamos!
+    </h2>
 
-        <img
-            src="./b0f6dc9d6e736f96fac12c43047ef015.jpg"
-            alt="La Granja de Zenón">
-
-        <div class="final-texto">
-
-            <h2>
-                ¡Te esperamos!
-            </h2>
-
-            <p>
-                Para festejar juntos
-                mi primer añito.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
+  </section>
 
 </main>
-
-
-<!-- =========================
-     MÚSICA
-========================= -->
-
-<iframe
-    id="musica"
-    allow="autoplay; encrypted-media"
-    style="
-        position:fixed;
-        width:1px;
-        height:1px;
-        opacity:.01;
-        pointer-events:none;
-        border:0;
-    "
-    title="Música">
-</iframe>
 
 
 <script>
 
 /* =========================
-   ABRIR INVITACIÓN + MÚSICA
+   ABRIR INVITACIÓN
 ========================= */
 
 function abrirInvitacion(){
 
-    const invitacion =
-        document.getElementById("invitacion");
+  const portada = document.getElementById("portada");
+  const invitacion = document.getElementById("invitacion");
+  const musica = document.getElementById("musica");
 
-    invitacion.classList.add("activa");
+  portada.style.display = "none";
 
-    const musica =
-        document.getElementById("musica");
+  invitacion.classList.add("activa");
 
-    musica.src =
-        "https://www.youtube.com/embed/0aZ7lPQ5EXs?autoplay=1&playsinline=1&loop=1&playlist=0aZ7lPQ5EXs&rel=0";
+  musica.src =
+    "https://www.youtube.com/embed/0aZ7lPQ5EXs?autoplay=1&playsinline=1&loop=1&playlist=0aZ7lPQ5EXs&rel=0";
 
-    document.body.style.overflowX="hidden";
-
-    setTimeout(function(){
-
-        window.scrollTo({
-            top:window.innerHeight,
-            behavior:"smooth"
-        });
-
-    },400);
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
@@ -1566,372 +1019,132 @@ function abrirInvitacion(){
 ========================= */
 
 const fechaEvento =
-    new Date(
-        "2027-01-13T12:00:00-03:00"
-    ).getTime();
-
+  new Date("2027-01-13T12:00:00-03:00").getTime();
 
 function actualizarCuenta(){
 
-    const ahora =
-        new Date().getTime();
+  const ahora = new Date().getTime();
 
-    const diferencia =
-        fechaEvento - ahora;
+  const diferencia = fechaEvento - ahora;
 
-    if(diferencia<=0){
+  if(diferencia <= 0){
 
-        document.getElementById("dias").innerText="00";
-        document.getElementById("horas").innerText="00";
-        document.getElementById("minutos").innerText="00";
-        document.getElementById("segundos").innerText="00";
+    document.getElementById("dias").textContent = 0;
+    document.getElementById("horas").textContent = 0;
+    document.getElementById("minutos").textContent = 0;
+    document.getElementById("segundos").textContent = 0;
 
-        return;
-    }
+    return;
+  }
 
-    const dias =
-        Math.floor(
-            diferencia /
-            (1000*60*60*24)
-        );
+  const dias =
+    Math.floor(diferencia / (1000 * 60 * 60 * 24));
 
-    const horas =
-        Math.floor(
-            (diferencia %
-            (1000*60*60*24)) /
-            (1000*60*60)
-        );
+  const horas =
+    Math.floor(
+      (diferencia / (1000 * 60 * 60)) % 24
+    );
 
-    const minutos =
-        Math.floor(
-            (diferencia %
-            (1000*60*60)) /
-            (1000*60)
-        );
+  const minutos =
+    Math.floor(
+      (diferencia / (1000 * 60)) % 60
+    );
 
-    const segundos =
-        Math.floor(
-            (diferencia %
-            (1000*60)) /
-            1000
-        );
+  const segundos =
+    Math.floor(
+      (diferencia / 1000) % 60
+    );
 
-    document.getElementById("dias").innerText =
-        String(dias).padStart(2,"0");
-
-    document.getElementById("horas").innerText =
-        String(horas).padStart(2,"0");
-
-    document.getElementById("minutos").innerText =
-        String(minutos).padStart(2,"0");
-
-    document.getElementById("segundos").innerText =
-        String(segundos).padStart(2,"0");
+  document.getElementById("dias").textContent = dias;
+  document.getElementById("horas").textContent = horas;
+  document.getElementById("minutos").textContent = minutos;
+  document.getElementById("segundos").textContent = segundos;
 
 }
 
 actualizarCuenta();
 
-setInterval(
-    actualizarCuenta,
-    1000
-);
+setInterval(actualizarCuenta,1000);
 
 
 /* =========================
-   GENERADOR DE SONIDOS
+   SONIDOS
 ========================= */
 
-function audioContext(){
-
-    const AudioContext =
-        window.AudioContext ||
-        window.webkitAudioContext;
-
-    return new AudioContext();
-
-}
-
-
-/* VACA */
-
-function sonidoVaca(){
-
-    const ctx=audioContext();
-
-    const osc=ctx.createOscillator();
-    const gain=ctx.createGain();
-
-    osc.type="sawtooth";
-
-    osc.frequency.setValueAtTime(
-        180,
-        ctx.currentTime
-    );
-
-    osc.frequency.exponentialRampToValueAtTime(
-        80,
-        ctx.currentTime+.8
-    );
-
-    gain.gain.setValueAtTime(
-        .001,
-        ctx.currentTime
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        .35,
-        ctx.currentTime+.05
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        .001,
-        ctx.currentTime+.9
-    );
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start();
-    osc.stop(
-        ctx.currentTime+.9
-    );
-
-}
-
-
-/* CERDO */
-
-function sonidoCerdo(){
-
-    const ctx=audioContext();
-
-    const osc=ctx.createOscillator();
-    const gain=ctx.createGain();
-
-    osc.type="square";
-
-    osc.frequency.setValueAtTime(
-        520,
-        ctx.currentTime
-    );
-
-    osc.frequency.linearRampToValueAtTime(
-        230,
-        ctx.currentTime+.2
-    );
-
-    gain.gain.setValueAtTime(
-        .001,
-        ctx.currentTime
-    );
-
-    gain.gain.linearRampToValueAtTime(
-        .3,
-        ctx.currentTime+.03
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        .001,
-        ctx.currentTime+.35
-    );
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start();
-    osc.stop(
-        ctx.currentTime+.35
-    );
-
-}
-
-
-/* GALLINA */
-
-function sonidoGallina(){
-
-    const ctx=audioContext();
-
-    const osc=ctx.createOscillator();
-    const gain=ctx.createGain();
-
-    osc.type="triangle";
-
-    osc.frequency.setValueAtTime(
-        800,
-        ctx.currentTime
-    );
-
-    osc.frequency.exponentialRampToValueAtTime(
-        320,
-        ctx.currentTime+.4
-    );
-
-    gain.gain.setValueAtTime(
-        .001,
-        ctx.currentTime
-    );
-
-    gain.gain.linearRampToValueAtTime(
-        .3,
-        ctx.currentTime+.03
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        .001,
-        ctx.currentTime+.5
-    );
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start();
-    osc.stop(
-        ctx.currentTime+.5
-    );
-
-}
-
-
-/* OVEJA */
-
-function sonidoOveja(){
-
-    const ctx=audioContext();
-
-    const osc=ctx.createOscillator();
-    const gain=ctx.createGain();
-
-    osc.type="sine";
-
-    osc.frequency.setValueAtTime(
-        400,
-        ctx.currentTime
-    );
-
-    osc.frequency.linearRampToValueAtTime(
-        210,
-        ctx.currentTime+.5
-    );
-
-    gain.gain.setValueAtTime(
-        .001,
-        ctx.currentTime
-    );
-
-    gain.gain.linearRampToValueAtTime(
-        .3,
-        ctx.currentTime+.05
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        .001,
-        ctx.currentTime+.65
-    );
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start();
-    osc.stop(
-        ctx.currentTime+.65
-    );
-
-}
-
-
-/* CABALLO */
-
-function sonidoCaballo(){
-
-    const ctx=audioContext();
-
-    const osc=ctx.createOscillator();
-    const gain=ctx.createGain();
-
-    osc.type="sawtooth";
-
-    osc.frequency.setValueAtTime(
-        500,
-        ctx.currentTime
-    );
-
-    osc.frequency.exponentialRampToValueAtTime(
-        150,
-        ctx.currentTime+.55
-    );
-
-    gain.gain.setValueAtTime(
-        .001,
-        ctx.currentTime
-    );
-
-    gain.gain.linearRampToValueAtTime(
-        .28,
-        ctx.currentTime+.03
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        .001,
-        ctx.currentTime+.7
-    );
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start();
-    osc.stop(
-        ctx.currentTime+.7
-    );
-
-}
-
-
-/* PATO */
-
-function sonidoPato(){
-
-    const ctx=audioContext();
-
-    const osc=ctx.createOscillator();
-    const gain=ctx.createGain();
-
-    osc.type="square";
-
-    osc.frequency.setValueAtTime(
-        650,
-        ctx.currentTime
-    );
-
-    osc.frequency.setValueAtTime(
-        420,
-        ctx.currentTime+.14
-    );
-
-    gain.gain.setValueAtTime(
-        .001,
-        ctx.currentTime
-    );
-
-    gain.gain.linearRampToValueAtTime(
-        .3,
-        ctx.currentTime+.03
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-        .001,
-        ctx.currentTime+.4
-    );
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start();
-    osc.stop(
-        ctx.currentTime+.4
-    );
-
+let audioContext;
+
+function sonidoAnimal(tipo){
+
+  if(!audioContext){
+    audioContext =
+      new (window.AudioContext ||
+      window.webkitAudioContext)();
+  }
+
+  const ahora = audioContext.currentTime;
+
+  const osc =
+    audioContext.createOscillator();
+
+  const gain =
+    audioContext.createGain();
+
+  osc.connect(gain);
+  gain.connect(audioContext.destination);
+
+  gain.gain.setValueAtTime(
+    0.001,
+    ahora
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.35,
+    ahora + 0.05
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.001,
+    ahora + 0.55
+  );
+
+  if(tipo === "vaca"){
+    osc.type = "sawtooth";
+    osc.frequency.setValueAtTime(170,ahora);
+    osc.frequency.linearRampToValueAtTime(110,ahora+.35);
+  }
+
+  if(tipo === "cerdo"){
+    osc.type = "square";
+    osc.frequency.setValueAtTime(280,ahora);
+    osc.frequency.linearRampToValueAtTime(190,ahora+.2);
+  }
+
+  if(tipo === "gallina"){
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(700,ahora);
+    osc.frequency.linearRampToValueAtTime(950,ahora+.15);
+  }
+
+  if(tipo === "oveja"){
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(350,ahora);
+    osc.frequency.linearRampToValueAtTime(500,ahora+.3);
+  }
+
+  if(tipo === "caballo"){
+    osc.type = "sawtooth";
+    osc.frequency.setValueAtTime(400,ahora);
+    osc.frequency.linearRampToValueAtTime(650,ahora+.15);
+  }
+
+  if(tipo === "pato"){
+    osc.type = "square";
+    osc.frequency.setValueAtTime(300,ahora);
+    osc.frequency.linearRampToValueAtTime(170,ahora+.25);
+  }
+
+  osc.start(ahora);
+  osc.stop(ahora+.6);
 }
 
 
@@ -1939,42 +1152,33 @@ function sonidoPato(){
    ANIMACIONES AL BAJAR
 ========================= */
 
-const elementos =
-    document.querySelectorAll(
-        ".aparecer"
-    );
-
 const observador =
-    new IntersectionObserver(
-        function(entries){
+  new IntersectionObserver(
+    entradas => {
 
-            entries.forEach(
-                function(entry){
+      entradas.forEach(entrada => {
 
-                    if(entry.isIntersecting){
+        if(entrada.isIntersecting){
 
-                        entry.target.classList.add(
-                            "visible"
-                        );
+          entrada.target.classList.add("visible");
 
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold:.10
         }
-    );
 
-elementos.forEach(
-    function(elemento){
+      });
 
-        observador.observe(elemento);
-
+    },
+    {
+      threshold:.15
     }
-);
+  );
+
+document
+  .querySelectorAll(".reveal")
+  .forEach(elemento => {
+
+    observador.observe(elemento);
+
+  });
 
 </script>
 
