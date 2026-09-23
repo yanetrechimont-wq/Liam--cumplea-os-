@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mi primer añito - Liam</title>
+<title>Mi primer añito - Liam Benítez</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +13,9 @@
 <style>
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -24,13 +24,9 @@ html{
 
 body{
     font-family:'Baloo 2',sans-serif;
-    background:#f4fff4;
+    background:#f5fff4;
     color:#31553a;
     overflow-x:hidden;
-}
-
-img{
-    max-width:100%;
 }
 
 /* =========================
@@ -42,114 +38,125 @@ img{
     inset:0;
     z-index:9999;
     display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#fff;
-    overflow:hidden;
-    transition:opacity 1s ease, visibility 1s ease;
-}
-
-#portada.oculta{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-}
-
-.portada-contenido{
-    position:relative;
-    width:100%;
-    max-width:520px;
-    height:100%;
-    display:flex;
-    justify-content:center;
     align-items:flex-end;
+    justify-content:center;
     overflow:hidden;
+    background:#31553a;
 }
 
-.foto-portada{
+.portada-foto{
     position:absolute;
     inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
+    object-position:center;
 }
 
 .portada-overlay{
     position:absolute;
     inset:0;
     background:
-    linear-gradient(
-        to bottom,
-        rgba(0,0,0,.05),
-        rgba(0,0,0,.08) 45%,
-        rgba(24,73,38,.78) 100%
-    );
+        linear-gradient(
+            to top,
+            rgba(20,60,29,.92) 0%,
+            rgba(20,60,29,.55) 38%,
+            rgba(20,60,29,.05) 75%
+        );
 }
 
-.nombre-portada{
+.portada-hojas{
     position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.hoja{
+    position:absolute;
+    font-size:28px;
+    animation:flotar 5s ease-in-out infinite;
+    opacity:.8;
+}
+
+.hoja:nth-child(1){
     top:12%;
+    left:8%;
+}
+
+.hoja:nth-child(2){
+    top:20%;
+    right:9%;
+    animation-delay:1s;
+}
+
+.hoja:nth-child(3){
+    top:42%;
+    left:5%;
+    animation-delay:2s;
+}
+
+.hoja:nth-child(4){
+    top:35%;
+    right:5%;
+    animation-delay:1.5s;
+}
+
+.portada-contenido{
+    position:relative;
+    z-index:3;
     width:100%;
+    max-width:600px;
+    padding:30px 22px 42px;
     text-align:center;
-    color:#fff;
+    color:white;
+    animation:entradaPortada 1.2s ease;
+}
+
+.portada-mini{
+    font-size:17px;
+    font-weight:600;
+    letter-spacing:2px;
+    margin-bottom:7px;
+}
+
+.liam-portada{
     font-family:'Fredoka',sans-serif;
     font-size:clamp(58px,18vw,105px);
+    line-height:.95;
     font-weight:700;
-    letter-spacing:6px;
+    letter-spacing:3px;
+    color:#fff;
     text-shadow:
-        0 4px 0 rgba(48,91,55,.55),
-        0 8px 20px rgba(0,0,0,.25);
-    animation:entradaNombre 1.4s ease;
+        3px 3px 0 #31553a,
+        0 5px 18px rgba(0,0,0,.3);
+    margin-bottom:16px;
 }
 
-@keyframes entradaNombre{
-    from{
-        opacity:0;
-        transform:translateY(-25px) scale(.9);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
+.sub-portada{
+    font-size:19px;
+    margin-bottom:22px;
+    color:#fff;
 }
 
 .boton-abrir{
-    position:relative;
-    z-index:5;
-    margin-bottom:85px;
-    padding:18px 40px;
     border:none;
-    border-radius:60px;
-    background:#fff;
-    color:#3f7849;
+    padding:15px 28px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#fff,#fffde9);
+    color:#31553a;
     font-family:'Fredoka',sans-serif;
-    font-size:22px;
-    font-weight:600;
-    cursor:pointer;
+    font-size:19px;
+    font-weight:700;
     box-shadow:
-        0 10px 30px rgba(0,0,0,.25),
-        0 0 0 5px rgba(255,255,255,.25);
-    animation:pulso 1.8s infinite;
+        0 8px 25px rgba(0,0,0,.25),
+        0 0 0 5px rgba(255,218,80,.25);
+    cursor:pointer;
+    transition:.3s;
+    animation:pulso 2s infinite;
 }
 
-@keyframes pulso{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.07);
-    }
-
-}
-
-.mensaje-portada{
-    position:absolute;
-    bottom:35px;
-    color:white;
-    font-size:15px;
+.boton-abrir:hover{
+    transform:scale(1.06);
 }
 
 /* =========================
@@ -158,6 +165,7 @@ img{
 
 #invitacion{
     display:none;
+    min-height:100vh;
 }
 
 #invitacion.activa{
@@ -165,41 +173,40 @@ img{
 }
 
 /* =========================
-   SECCIONES
+   ELEMENTOS GENERALES
 ========================= */
 
 .seccion{
     position:relative;
-    padding:85px 22px;
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    padding:75px 20px;
     text-align:center;
-    overflow:hidden;
-}
-
-.seccion-blanca{
-    background:#fff;
 }
 
 .seccion-verde{
     background:#e0f3df;
 }
 
-.contenedor{
-    width:100%;
-    max-width:900px;
-    margin:auto;
-}
-
-h2{
+.titulo{
     font-family:'Fredoka',sans-serif;
-    color:#3f7048;
-    font-size:clamp(32px,8vw,52px);
-    margin-bottom:22px;
+    font-size:clamp(32px,8vw,54px);
+    font-weight:700;
+    color:#31553a;
+    margin-bottom:12px;
 }
 
 .subtitulo{
     font-size:20px;
-    line-height:1.55;
-    color:#52745a;
+    color:#477c51;
+}
+
+.decoracion{
+    color:#e8c63d;
+    font-size:24px;
+    letter-spacing:7px;
+    margin:10px 0 20px;
 }
 
 /* =========================
@@ -209,344 +216,380 @@ h2{
 .hero{
     min-height:90vh;
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
-
+    overflow:hidden;
     background:
-        radial-gradient(
-            circle at 15% 15%,
-            #ffffff 0 4%,
-            transparent 5%
-        ),
-        radial-gradient(
-            circle at 85% 20%,
-            #ffffff 0 5%,
-            transparent 6%
-        ),
-        linear-gradient(
-            180deg,
-            #d6f0d5,
-            #ffffff
-        );
+        radial-gradient(circle at 20% 20%,rgba(255,222,85,.28),transparent 20%),
+        radial-gradient(circle at 80% 30%,rgba(107,181,111,.25),transparent 25%),
+        #f5fff4;
 }
 
-.hero-contenido{
-    position:relative;
-    z-index:2;
+.animales-volando{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
 }
 
-.mini{
-    font-size:22px;
-    color:#5e9067;
-    font-weight:600;
+.animal-flotante{
+    position:absolute;
+    font-size:38px;
+    animation:flotarAnimal 6s ease-in-out infinite;
+}
+
+.animal-flotante:nth-child(1){
+    left:8%;
+    top:16%;
+}
+
+.animal-flotante:nth-child(2){
+    right:9%;
+    top:22%;
+    animation-delay:1s;
+}
+
+.animal-flotante:nth-child(3){
+    left:13%;
+    bottom:20%;
+    animation-delay:2s;
+}
+
+.animal-flotante:nth-child(4){
+    right:12%;
+    bottom:16%;
+    animation-delay:3s;
+}
+
+.hero-estrellitas{
+    color:#e7c63d;
+    font-size:28px;
+    letter-spacing:8px;
+    margin-bottom:20px;
 }
 
 .hero h1{
     font-family:'Fredoka',sans-serif;
-    color:#477c51;
-    font-size:clamp(55px,16vw,100px);
-    line-height:.9;
-    margin:18px 0;
-    text-shadow:
-        3px 4px 0 #c7e5c8;
+    font-size:clamp(45px,12vw,78px);
+    color:#31553a;
+    line-height:1;
+    margin:15px 0;
 }
 
-.hero .fecha{
+.hero h2{
     font-size:25px;
     font-weight:600;
-    color:#52745a;
+    color:#477c51;
 }
 
 /* =========================
-   ANIMALES DECORATIVOS
+   MENSAJE + FOTO
 ========================= */
 
-.animal{
-    position:absolute;
-    font-size:65px;
-    animation:flotar 3s ease-in-out infinite;
+.mensaje{
+    background:white;
 }
 
-.animal-1{
-    left:7%;
-    top:20%;
+.frase{
+    max-width:650px;
+    margin:0 auto 35px;
+    font-size:25px;
+    line-height:1.35;
+    color:#31553a;
 }
 
-.animal-2{
-    right:7%;
-    top:28%;
-    animation-delay:.7s;
+.frase strong{
+    color:#477c51;
 }
 
-.animal-3{
-    left:10%;
-    bottom:17%;
-    animation-delay:1.2s;
+.foto-marco{
+    position:relative;
+    width:min(88vw,520px);
+    margin:30px auto;
+    border-radius:28px;
+    padding:9px;
+    background:linear-gradient(135deg,#fff,#e8c63d,#5e9067,#fff);
+    box-shadow:0 15px 35px rgba(49,85,58,.18);
 }
 
-.animal-4{
-    right:10%;
-    bottom:12%;
-    animation-delay:1.8s;
-}
-
-@keyframes flotar{
-
-    0%,100%{
-        transform:translateY(0) rotate(-3deg);
-    }
-
-    50%{
-        transform:translateY(-12px) rotate(3deg);
-    }
-
-}
-
-/* =========================
-   FOTOS
-========================= */
-
-.foto-bloque{
-    width:100%;
-    max-width:430px;
-    margin:45px auto 0;
-    border-radius:35px;
-    overflow:hidden;
-    box-shadow:
-        0 18px 40px rgba(49,85,58,.18);
-    border:7px solid #fff;
-}
-
-.foto-bloque img{
+.foto{
     display:block;
     width:100%;
-    height:auto;
+    border-radius:21px;
+    object-fit:cover;
 }
 
 /* =========================
-   ICONOS
+   FECHA
 ========================= */
 
-.icono-grande{
-    font-size:60px;
-    margin-bottom:15px;
-}
-
-/* =========================
-   FECHA Y RELOJ
-========================= */
-
-.fecha-bloque{
-    margin-top:40px;
+.fecha{
+    background:#e0f3df;
 }
 
 .fecha-texto{
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.fecha-grande{
     font-family:'Fredoka',sans-serif;
-    font-size:27px;
-    color:#477c51;
-    font-weight:600;
+    font-size:clamp(30px,8vw,48px);
+    color:#31553a;
+    font-weight:700;
 }
 
-.reloj-bloque{
-    margin-top:55px;
+.hora-bloque{
+    margin-top:52px;
 }
 
-.reloj{
+.hora{
     display:inline-block;
-    padding:18px 32px;
-    border-radius:28px;
-    background:#fff;
-    color:#3f7048;
+    margin-top:10px;
+    padding:13px 25px;
+    border-radius:50px;
+    background:white;
+    box-shadow:0 8px 20px rgba(49,85,58,.13);
     font-family:'Fredoka',sans-serif;
-    font-size:32px;
-    font-weight:600;
-    box-shadow:
-        0 10px 30px rgba(49,85,58,.12);
+    font-size:29px;
+    color:#31553a;
 }
 
 /* =========================
    CALENDARIO
 ========================= */
 
-.calendario-bloque{
-    margin-top:45px;
+.calendario-seccion{
+    background:white;
 }
 
 .calendario{
-    max-width:430px;
-    margin:0 auto;
-    background:#fff;
-    border-radius:30px;
-    padding:28px;
-    box-shadow:
-        0 12px 35px rgba(49,85,58,.12);
+    max-width:470px;
+    margin:30px auto 0;
+    background:#f7fff5;
+    border-radius:25px;
+    padding:20px;
+    box-shadow:0 12px 30px rgba(49,85,58,.12);
+    border:2px solid #e0f3df;
 }
 
 .mes{
     font-family:'Fredoka',sans-serif;
     font-size:30px;
-    color:#477c51;
-    margin-bottom:22px;
+    color:#31553a;
+    margin-bottom:17px;
 }
 
 .dias{
     display:grid;
     grid-template-columns:repeat(7,1fr);
-    gap:7px;
-    font-size:14px;
+    gap:6px;
 }
 
-.dia{
+.dia-nombre{
+    font-weight:700;
+    font-size:13px;
+    color:#5e9067;
+    padding-bottom:7px;
+}
+
+.numero{
     aspect-ratio:1;
     display:flex;
     align-items:center;
     justify-content:center;
     border-radius:50%;
+    font-size:15px;
 }
 
-.encabezado{
-    font-weight:700;
-    color:#6b956f;
+.numero.finde{
+    color:#477c51;
 }
 
-.especial{
-    background:#65a66d;
-    color:#fff;
+.numero.especial{
+    background:#e8c63d;
+    color:#31553a;
     font-weight:800;
     box-shadow:
-        0 5px 12px rgba(63,104,72,.28);
+        0 0 0 5px rgba(232,198,61,.20),
+        0 6px 15px rgba(232,198,61,.25);
+    animation:resaltar 2s infinite;
 }
 
 /* =========================
    CUENTA REGRESIVA
 ========================= */
 
-.countdown-bloque{
-    margin-top:65px;
+.countdown{
+    background:
+        radial-gradient(circle at 15% 20%,rgba(232,198,61,.2),transparent 20%),
+        #31553a;
+    color:white;
 }
 
-.countdown{
+.countdown .titulo{
+    color:white;
+}
+
+.countdown .subtitulo{
+    color:#e0f3df;
+}
+
+.contadores{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    max-width:600px;
-    margin:35px auto 0;
+    gap:10px;
+    max-width:650px;
+    margin:38px auto 0;
 }
 
-.caja-tiempo{
-    background:#fff;
-    border-radius:22px;
-    padding:20px 8px;
-    box-shadow:
-        0 8px 25px rgba(49,85,58,.10);
+.contador{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:20px;
+    padding:18px 5px;
+    backdrop-filter:blur(5px);
 }
 
-.numero{
+.contador strong{
     display:block;
     font-family:'Fredoka',sans-serif;
-    font-size:35px;
-    font-weight:700;
-    color:#477c51;
+    font-size:31px;
+    color:#fff;
 }
 
-.etiqueta{
-    font-size:14px;
-    color:#739178;
+.contador span{
+    font-size:13px;
+    color:#e0f3df;
 }
 
 /* =========================
-   ANIMALES
+   ANIMALES INTERACTIVOS
 ========================= */
 
-.animales-bloque{
-    margin-top:35px;
+.animales{
+    background:#f5fff4;
 }
 
-.animales{
+.animales-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:18px;
-    max-width:600px;
+    max-width:650px;
     margin:35px auto 0;
 }
 
-.animal-card{
+.animal{
     border:none;
-    background:#fff;
+    background:white;
     border-radius:25px;
-    padding:27px 10px;
-    font-family:'Baloo 2',sans-serif;
-    color:#45694c;
-    font-size:18px;
+    padding:20px 8px;
+    box-shadow:0 8px 20px rgba(49,85,58,.12);
     cursor:pointer;
-    box-shadow:
-        0 8px 20px rgba(49,85,58,.10);
-    transition:.3s;
+    transition:.25s;
+    font-family:'Baloo 2',sans-serif;
+    color:#31553a;
 }
 
-.animal-card:hover{
-    transform:translateY(-7px) rotate(-1deg);
+.animal:hover{
+    transform:translateY(-7px) rotate(-2deg);
+    box-shadow:0 15px 25px rgba(49,85,58,.18);
 }
 
-.animal-card span{
+.animal:active{
+    transform:scale(.92);
+}
+
+.animal-emoji{
     display:block;
-    font-size:55px;
+    font-size:52px;
     margin-bottom:5px;
+}
+
+.animal-nombre{
+    font-size:17px;
+    font-weight:700;
+}
+
+.animal-ayuda{
+    margin-top:20px;
+    color:#5e9067;
+    font-size:17px;
 }
 
 /* =========================
    UBICACIÓN
 ========================= */
 
-.ubicacion-bloque{
-    margin-top:40px;
+.ubicacion{
+    background:#e0f3df;
+}
+
+.direccion{
+    font-family:'Fredoka',sans-serif;
+    font-size:27px;
+    color:#31553a;
+    margin:20px 0;
 }
 
 .mapa{
-    width:100%;
-    max-width:700px;
+    width:min(100%,650px);
     height:300px;
-    margin:35px auto 0;
     border:0;
-    border-radius:30px;
-    box-shadow:
-        0 12px 30px rgba(49,85,58,.15);
+    border-radius:25px;
+    box-shadow:0 12px 30px rgba(49,85,58,.16);
 }
 
-.boton{
+.boton-mapa,
+.boton-wsp{
     display:inline-block;
-    margin-top:30px;
-    padding:15px 30px;
-    background:#477c51;
-    color:#fff;
+    margin-top:25px;
+    padding:14px 25px;
+    border-radius:50px;
     text-decoration:none;
-    border-radius:40px;
-    font-size:18px;
+    font-family:'Fredoka',sans-serif;
     font-weight:600;
-    box-shadow:
-        0 7px 20px rgba(63,104,72,.25);
+    font-size:18px;
+    transition:.3s;
+}
+
+.boton-mapa{
+    background:#31553a;
+    color:white;
+}
+
+.boton-wsp{
+    background:#5e9067;
+    color:white;
+}
+
+.boton-mapa:hover,
+.boton-wsp:hover{
+    transform:translateY(-3px);
 }
 
 /* =========================
-   WHATSAPP
+   CONFIRMACIÓN
 ========================= */
 
-.confirmacion-bloque{
-    margin-top:40px;
+.confirmacion{
+    background:white;
 }
 
-.whatsapp{
-    display:inline-block;
-    margin-top:30px;
-    padding:17px 32px;
-    border-radius:45px;
-    background:#5eaa68;
-    color:#fff;
-    text-decoration:none;
-    font-size:20px;
-    font-weight:700;
-    box-shadow:
-        0 10px 25px rgba(60,130,70,.22);
+.confirmacion p{
+    font-size:21px;
+}
+
+/* =========================
+   FOTO FINAL
+========================= */
+
+.final-foto{
+    background:#f5fff4;
+}
+
+.final-foto .foto-marco{
+    margin-bottom:35px;
 }
 
 /* =========================
@@ -554,123 +597,163 @@ h2{
 ========================= */
 
 .final{
-    min-height:85vh;
+    min-height:65vh;
     display:flex;
-    align-items:center;
+    flex-direction:column;
     justify-content:center;
-
+    align-items:center;
     background:
-        radial-gradient(
-            circle at 20% 20%,
-            #ffffff 0 5%,
-            transparent 6%
-        ),
-        radial-gradient(
-            circle at 80% 30%,
-            #ffffff 0 4%,
-            transparent 5%
-        ),
-        linear-gradient(
-            180deg,
-            #dff2de,
-            #c5e5c6
-        );
+        radial-gradient(circle at 50% 20%,rgba(232,198,61,.25),transparent 25%),
+        #31553a;
+    color:white;
+}
+
+.final-deco{
+    font-size:42px;
+    letter-spacing:8px;
+    margin-bottom:25px;
 }
 
 .final h2{
-    font-size:60px;
+    font-family:'Fredoka',sans-serif;
+    font-size:clamp(45px,12vw,75px);
+    margin-bottom:10px;
 }
 
-.final-nombre{
+.final p{
+    font-size:25px;
+}
+
+.final .nombre{
+    margin-top:22px;
     font-family:'Fredoka',sans-serif;
-    font-size:70px;
-    color:#477c51;
-    font-weight:700;
-    margin-top:15px;
+    font-size:36px;
+    color:#e8c63d;
 }
 
 /* =========================
-   MÚSICA
+   BOTÓN MÚSICA
 ========================= */
 
-#musica{
+#botonMusica{
     position:fixed;
     right:18px;
     bottom:18px;
-    z-index:500;
-    width:58px;
-    height:58px;
+    z-index:1000;
+    width:55px;
+    height:55px;
     border:none;
     border-radius:50%;
-    background:#477c51;
-    color:#fff;
-    font-size:25px;
+    background:#e8c63d;
+    color:#31553a;
+    font-size:24px;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
     cursor:pointer;
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.22);
     display:none;
 }
 
-#musica.visible{
-    display:block;
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes entradaPortada{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes pulso{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.04);
+    }
+}
+
+@keyframes flotar{
+    0%,100%{
+        transform:translateY(0) rotate(-5deg);
+    }
+    50%{
+        transform:translateY(-15px) rotate(5deg);
+    }
+}
+
+@keyframes flotarAnimal{
+    0%,100%{
+        transform:translateY(0) rotate(-4deg);
+    }
+    50%{
+        transform:translateY(-22px) rotate(4deg);
+    }
+}
+
+@keyframes resaltar{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 
-@media(max-width:500px){
-
-    .animal{
-        font-size:48px;
-    }
+@media(max-width:600px){
 
     .seccion{
-        padding:75px 18px;
+        padding:65px 17px;
     }
 
-    .countdown{
+    .liam-portada{
+        font-size:70px;
+        letter-spacing:2px;
+    }
+
+    .portada-contenido{
+        padding-bottom:35px;
+    }
+
+    .frase{
+        font-size:22px;
+    }
+
+    .contadores{
         gap:7px;
     }
 
-    .numero{
-        font-size:28px;
+    .contador{
+        padding:15px 3px;
     }
 
-    .etiqueta{
-        font-size:12px;
+    .contador strong{
+        font-size:25px;
     }
 
-    .final-nombre{
-        font-size:55px;
+    .contador span{
+        font-size:11px;
     }
 
-    .final h2{
-        font-size:48px;
+    .animales-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:14px;
     }
 
-}
-
-/* =========================
-   ANIMACIÓN AL ABRIR
-========================= */
-
-@keyframes aparecer{
-
-    from{
-        opacity:0;
-        transform:translateY(25px);
+    .animal-emoji{
+        font-size:45px;
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0);
+    .mapa{
+        height:270px;
     }
-
-}
-
-#invitacion.activa .seccion{
-    animation:aparecer .8s ease both;
 }
 
 </style>
@@ -678,25 +761,38 @@ h2{
 
 <body>
 
-
-<!-- ==================================================
+<!-- =========================
      PORTADA
-================================================== -->
+========================= -->
 
-<div id="portada">
+<section id="portada">
+
+    <img
+        src="22632e101f69f3936ba2d1885d7b2582.jpg"
+        class="portada-foto"
+        alt="Liam">
+
+    <div class="portada-overlay"></div>
+
+    <div class="portada-hojas">
+        <span class="hoja">🌿</span>
+        <span class="hoja">✨</span>
+        <span class="hoja">🌾</span>
+        <span class="hoja">⭐</span>
+    </div>
 
     <div class="portada-contenido">
 
-        <img
-            src="22632e101f69f3936ba2d1885d7b2582.jpg"
-            class="foto-portada"
-            alt="Liam"
-        >
+        <div class="portada-mini">
+            🌿 MI PRIMER CUMPLEAÑOS 🌿
+        </div>
 
-        <div class="portada-overlay"></div>
-
-        <div class="nombre-portada">
+        <div class="liam-portada">
             LIAM
+        </div>
+
+        <div class="sub-portada">
+            Tengo una sorpresa para vos 💚
         </div>
 
         <button
@@ -705,122 +801,104 @@ h2{
             ✨ ABRÍ ACÁ ✨
         </button>
 
-        <div class="mensaje-portada">
-            Tengo una sorpresa para vos 🌿
-        </div>
-
     </div>
 
-</div>
+</section>
 
 
-<!-- ==================================================
+<!-- =========================
      INVITACIÓN
-================================================== -->
+========================= -->
 
 <main id="invitacion">
 
 
-<!-- PRESENTACIÓN -->
+<!-- HERO -->
 
 <section class="seccion hero">
 
-    <div class="animal animal-1">🐄</div>
-    <div class="animal animal-2">🐷</div>
-    <div class="animal animal-3">🐔</div>
-    <div class="animal animal-4">🐑</div>
+    <div class="animales-volando">
+        <span class="animal-flotante">🐄</span>
+        <span class="animal-flotante">🐔</span>
+        <span class="animal-flotante">🐷</span>
+        <span class="animal-flotante">🐑</span>
+    </div>
 
-    <div class="hero-contenido">
+    <div class="hero-estrellitas">
+        ✨ 🌿 ✨
+    </div>
 
-        <div class="mini">
-            🌿 Una celebración muy especial 🌿
-        </div>
+    <div class="decoracion">
+        🌾 🐄 🌾
+    </div>
 
-        <h1>
-            Mi primer<br>
-            añito
-        </h1>
+    <h1>
+        Mi primer añito
+    </h1>
 
-        <div class="fecha">
-            Liam Benítez
-        </div>
+    <h2>
+        Liam Benítez
+    </h2>
+
+    <div class="decoracion">
+        🌿 💛 🌿
+    </div>
+
+</section>
+
+
+<!-- FOTO + MENSAJE -->
+
+<section class="seccion mensaje">
+
+    <div class="frase">
+
+        <strong>Quiero festejar</strong><br>
+        este día tan especial con vos 💚
+
+    </div>
+
+    <div class="foto-marco">
+
+        <img
+            src="IMG-20260923-WA0014.jpg"
+            class="foto"
+            alt="Liam">
 
     </div>
 
 </section>
 
 
-<!-- MENSAJE + PRIMERA FOTO -->
+<!-- FECHA -->
 
-<section class="seccion seccion-blanca">
+<section class="seccion fecha">
 
-    <div class="contenedor">
+    <div class="decoracion">
+        ✨ 🌿 ✨
+    </div>
 
-        <div class="icono-grande">
-            🌾
-        </div>
+    <h2 class="titulo">
+        Guardá la fecha
+    </h2>
 
-        <h2>
-            Quiero festejar
-        </h2>
+    <p class="fecha-texto">
+        Mi gran día será
+    </p>
 
-        <p class="subtitulo">
-            este día tan especial con vos.
-            <br>
-            Tu compañía hará que mi primer cumpleaños
-            sea todavía más lindo.
+    <div class="fecha-grande">
+        13 de enero de 2027
+    </div>
+
+
+    <div class="hora-bloque">
+
+        <p class="fecha-texto">
+            Nos encontramos a las
         </p>
 
-        <div class="foto-bloque">
-
-            <img
-                src="IMG-20260923-WA0014.jpg"
-                alt="Liam"
-            >
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- FECHA + RELOJ -->
-
-<section class="seccion seccion-verde">
-
-    <div class="contenedor">
-
-        <div class="icono-grande">
-            📅
-        </div>
-
-        <h2>
-            Guardá la fecha
-        </h2>
-
-        <div class="fecha-bloque">
-
-            <p class="subtitulo">
-                Mi gran día será
-            </p>
-
-            <div class="fecha-texto">
-                13 de enero de 2027
-            </div>
-
-        </div>
-
-        <div class="reloj-bloque">
-
-            <p class="subtitulo">
-                Nos encontramos a las
-            </p>
-
-            <div class="reloj">
-                🕛 12:00 hs
-            </div>
-
+        <div class="hora">
+            🕛 12:00 hs
         </div>
 
     </div>
@@ -830,84 +908,77 @@ h2{
 
 <!-- CALENDARIO -->
 
-<section class="seccion seccion-blanca">
+<section class="seccion calendario-seccion">
 
-    <div class="contenedor">
+    <div class="decoracion">
+        🌾 💛 🌾
+    </div>
 
-        <h2>
-            Nuestro día 💚
-        </h2>
+    <h2 class="titulo">
+        📅 Calendario
+    </h2>
 
-        <p class="subtitulo">
-            Marcá el 13 de enero en tu calendario.
-        </p>
+    <p class="subtitulo">
+        Marcá mi gran día
+    </p>
 
-        <div class="calendario-bloque">
 
-            <div class="calendario">
+    <div class="calendario">
 
-                <div class="mes">
-                    Enero 2027
-                </div>
+        <div class="mes">
+            Enero 2027
+        </div>
 
-                <div class="dias">
+        <div class="dias">
 
-                    <div class="dia encabezado">L</div>
-                    <div class="dia encabezado">M</div>
-                    <div class="dia encabezado">M</div>
-                    <div class="dia encabezado">J</div>
-                    <div class="dia encabezado">V</div>
-                    <div class="dia encabezado">S</div>
-                    <div class="dia encabezado">D</div>
+            <div class="dia-nombre">L</div>
+            <div class="dia-nombre">M</div>
+            <div class="dia-nombre">X</div>
+            <div class="dia-nombre">J</div>
+            <div class="dia-nombre">V</div>
+            <div class="dia-nombre">S</div>
+            <div class="dia-nombre">D</div>
 
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
 
-                    <div class="dia">1</div>
-                    <div class="dia">2</div>
-                    <div class="dia">3</div>
+            <div class="numero"></div>
+            <div class="numero"></div>
+            <div class="numero"></div>
+            <div class="numero"></div>
+            <div class="numero">1</div>
+            <div class="numero">2</div>
+            <div class="numero">3</div>
 
-                    <div class="dia">4</div>
-                    <div class="dia">5</div>
-                    <div class="dia">6</div>
-                    <div class="dia">7</div>
-                    <div class="dia">8</div>
-                    <div class="dia">9</div>
-                    <div class="dia">10</div>
+            <div class="numero">4</div>
+            <div class="numero">5</div>
+            <div class="numero">6</div>
+            <div class="numero">7</div>
+            <div class="numero">8</div>
+            <div class="numero">9</div>
+            <div class="numero">10</div>
 
-                    <div class="dia">11</div>
-                    <div class="dia">12</div>
+            <div class="numero">11</div>
+            <div class="numero">12</div>
+            <div class="numero especial">13</div>
+            <div class="numero">14</div>
+            <div class="numero">15</div>
+            <div class="numero">16</div>
+            <div class="numero">17</div>
 
-                    <div class="dia especial">
-                        13
-                    </div>
+            <div class="numero">18</div>
+            <div class="numero">19</div>
+            <div class="numero">20</div>
+            <div class="numero">21</div>
+            <div class="numero">22</div>
+            <div class="numero">23</div>
+            <div class="numero">24</div>
 
-                    <div class="dia">14</div>
-                    <div class="dia">15</div>
-                    <div class="dia">16</div>
-                    <div class="dia">17</div>
-
-                    <div class="dia">18</div>
-                    <div class="dia">19</div>
-                    <div class="dia">20</div>
-                    <div class="dia">21</div>
-                    <div class="dia">22</div>
-                    <div class="dia">23</div>
-                    <div class="dia">24</div>
-
-                    <div class="dia">25</div>
-                    <div class="dia">26</div>
-                    <div class="dia">27</div>
-                    <div class="dia">28</div>
-                    <div class="dia">29</div>
-                    <div class="dia">30</div>
-                    <div class="dia">31</div>
-
-                </div>
-
-            </div>
+            <div class="numero">25</div>
+            <div class="numero">26</div>
+            <div class="numero">27</div>
+            <div class="numero">28</div>
+            <div class="numero">29</div>
+            <div class="numero">30</div>
+            <div class="numero">31</div>
 
         </div>
 
@@ -918,48 +989,41 @@ h2{
 
 <!-- CUENTA REGRESIVA -->
 
-<section class="seccion seccion-verde">
+<section class="seccion countdown">
 
-    <div class="contenedor">
+    <div class="decoracion">
+        ✨ 🌾 ✨
+    </div>
 
-        <div class="icono-grande">
-            ⏳
+    <h2 class="titulo">
+        ⏳ Falta poquito
+    </h2>
+
+    <p class="subtitulo">
+        para celebrar juntos
+    </p>
+
+
+    <div class="contadores">
+
+        <div class="contador">
+            <strong id="dias">00</strong>
+            <span>DÍAS</span>
         </div>
 
-        <h2>
-            Falta poquito...
-        </h2>
+        <div class="contador">
+            <strong id="horas">00</strong>
+            <span>HORAS</span>
+        </div>
 
-        <p class="subtitulo">
-            para celebrar juntos mi primer añito.
-        </p>
+        <div class="contador">
+            <strong id="minutos">00</strong>
+            <span>MINUTOS</span>
+        </div>
 
-        <div class="countdown-bloque">
-
-            <div class="countdown">
-
-                <div class="caja-tiempo">
-                    <span class="numero" id="dias">0</span>
-                    <span class="etiqueta">días</span>
-                </div>
-
-                <div class="caja-tiempo">
-                    <span class="numero" id="horas">0</span>
-                    <span class="etiqueta">horas</span>
-                </div>
-
-                <div class="caja-tiempo">
-                    <span class="numero" id="minutos">0</span>
-                    <span class="etiqueta">minutos</span>
-                </div>
-
-                <div class="caja-tiempo">
-                    <span class="numero" id="segundos">0</span>
-                    <span class="etiqueta">segundos</span>
-                </div>
-
-            </div>
-
+        <div class="contador">
+            <strong id="segundos">00</strong>
+            <span>SEGUNDOS</span>
         </div>
 
     </div>
@@ -969,173 +1033,132 @@ h2{
 
 <!-- ANIMALES -->
 
-<section class="seccion seccion-blanca">
+<section class="seccion animales">
 
-    <div class="contenedor">
+    <div class="decoracion">
+        🐄 💛 🐔
+    </div>
 
-        <h2>
-            Mis amigos de la granja 🐮
-        </h2>
+    <h2 class="titulo">
+        ¡Conocé a mis amigos!
+    </h2>
 
-        <p class="subtitulo">
-            Tocá a cada uno y descubrí su saludo.
-        </p>
+    <p class="subtitulo">
+        Tocá cada animal y escuchá su sonido 🐾
+    </p>
 
-        <div class="animales-bloque">
 
-            <div class="animales">
+    <div class="animales-grid">
 
-                <button
-                    class="animal-card"
-                    onclick="saludar('🐄')">
-                    <span>🐄</span>
-                    La vaquita
-                </button>
+        <button class="animal" onclick="sonidoAnimal('vaca')">
+            <span class="animal-emoji">🐄</span>
+            <span class="animal-nombre">Vaca</span>
+        </button>
 
-                <button
-                    class="animal-card"
-                    onclick="saludar('🐷')">
-                    <span>🐷</span>
-                    El chanchito
-                </button>
+        <button class="animal" onclick="sonidoAnimal('gallina')">
+            <span class="animal-emoji">🐔</span>
+            <span class="animal-nombre">Gallina</span>
+        </button>
 
-                <button
-                    class="animal-card"
-                    onclick="saludar('🐔')">
-                    <span>🐔</span>
-                    La gallinita
-                </button>
+        <button class="animal" onclick="sonidoAnimal('cerdo')">
+            <span class="animal-emoji">🐷</span>
+            <span class="animal-nombre">Cerdito</span>
+        </button>
 
-                <button
-                    class="animal-card"
-                    onclick="saludar('🐑')">
-                    <span>🐑</span>
-                    La ovejita
-                </button>
+        <button class="animal" onclick="sonidoAnimal('oveja')">
+            <span class="animal-emoji">🐑</span>
+            <span class="animal-nombre">Oveja</span>
+        </button>
 
-                <button
-                    class="animal-card"
-                    onclick="saludar('🐴')">
-                    <span>🐴</span>
-                    El caballito
-                </button>
+        <button class="animal" onclick="sonidoAnimal('caballo')">
+            <span class="animal-emoji">🐴</span>
+            <span class="animal-nombre">Caballo</span>
+        </button>
 
-                <button
-                    class="animal-card"
-                    onclick="saludar('🐥')">
-                    <span>🐥</span>
-                    El pollito
-                </button>
-
-            </div>
-
-        </div>
+        <button class="animal" onclick="sonidoAnimal('pato')">
+            <span class="animal-emoji">🦆</span>
+            <span class="animal-nombre">Pato</span>
+        </button>
 
     </div>
 
-</section>
-
-
-<!-- SEGUNDA FOTO -->
-
-<section class="seccion seccion-verde">
-
-    <div class="contenedor">
-
-        <div class="icono-grande">
-            🌟
-        </div>
-
-        <h2>
-            Un año lleno de aventuras
-        </h2>
-
-        <p class="subtitulo">
-            Y esto recién comienza...
-        </p>
-
-        <div class="foto-bloque">
-
-            <img
-                src="b0f6dc9d6e736f96fac12c43047ef015.jpg"
-                alt="Liam"
-            >
-
-        </div>
-
-    </div>
+    <p class="animal-ayuda">
+        👆 Tocá uno para hacerlo sonar
+    </p>
 
 </section>
 
 
 <!-- UBICACIÓN -->
 
-<section class="seccion seccion-blanca">
+<section class="seccion ubicacion">
 
-    <div class="contenedor">
-
-        <div class="icono-grande">
-            📍
-        </div>
-
-        <h2>
-            ¿Dónde nos encontramos?
-        </h2>
-
-        <p class="subtitulo">
-            General Paz 4120
-        </p>
-
-        <div class="ubicacion-bloque">
-
-            <iframe
-                class="mapa"
-                src="https://www.google.com/maps?q=General+Paz+4120&output=embed"
-                loading="lazy">
-            </iframe>
-
-            <a
-                class="boton"
-                href="https://www.google.com/maps/search/?api=1&query=General+Paz+4120"
-                target="_blank">
-                📍 Abrir Google Maps
-            </a>
-
-        </div>
-
+    <div class="decoracion">
+        📍 🌿 📍
     </div>
+
+    <h2 class="titulo">
+        ¿Dónde festejamos?
+    </h2>
+
+    <div class="direccion">
+        General Paz 4120
+    </div>
+
+    <iframe
+        class="mapa"
+        src="https://www.google.com/maps?q=General+Paz+4120&output=embed"
+        loading="lazy">
+    </iframe>
+
+    <br>
+
+    <a
+        class="boton-mapa"
+        href="https://www.google.com/maps/search/?api=1&query=General+Paz+4120"
+        target="_blank">
+        📍 Abrir Google Maps
+    </a>
 
 </section>
 
 
 <!-- CONFIRMACIÓN -->
 
-<section class="seccion seccion-verde">
+<section class="seccion confirmacion">
 
-    <div class="contenedor">
+    <div class="decoracion">
+        💛 🌾 💛
+    </div>
 
-        <div class="icono-grande">
-            💚
-        </div>
+    <h2 class="titulo">
+        ¿Venís a festejar conmigo?
+    </h2>
 
-        <h2>
-            ¿Venís a festejar conmigo?
-        </h2>
+    <p>
+        Confirmá tu asistencia por WhatsApp 💚
+    </p>
 
-        <p class="subtitulo">
-            Confirmá tu asistencia por WhatsApp.
-        </p>
+    <a
+        class="boton-wsp"
+        href="https://wa.me/5491136088939?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20primer%20añito%20de%20Liam%20%F0%9F%92%9A"
+        target="_blank">
+        💬 Confirmar asistencia
+    </a>
 
-        <div class="confirmacion-bloque">
+</section>
 
-            <a
-                class="whatsapp"
-                href="https://wa.me/5491136088939?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20al%20primer%20cumplea%C3%B1os%20de%20Liam."
-                target="_blank">
-                💬 Confirmar asistencia
-            </a>
 
-        </div>
+<!-- FOTO FINAL -->
+
+<section class="seccion final-foto">
+
+    <div class="foto-marco">
+
+        <img
+            src="b0f6dc9d6e736f96fac12c43047ef015.jpg"
+            class="foto"
+            alt="Liam">
 
     </div>
 
@@ -1146,54 +1169,46 @@ h2{
 
 <section class="seccion final">
 
-    <div class="contenedor">
-
-        <div class="icono-grande">
-            🌾🐄🌿
-        </div>
-
-        <h2>
-            ¡Te esperamos!
-        </h2>
-
-        <div class="final-nombre">
-            LIAM
-        </div>
-
-        <p class="subtitulo">
-            Mi primer añito 💚
-        </p>
-
+    <div class="final-deco">
+        🌾 🐄 🌿
     </div>
 
-</section>
+    <h2>
+        ¡Te esperamos!
+    </h2>
 
+    <p>
+        Para compartir este día tan especial 💚
+    </p>
+
+    <div class="nombre">
+        LIAM
+    </div>
+
+    <p>
+        Mi primer añito ✨
+    </p>
+
+</section>
 
 </main>
 
 
-<!-- BOTÓN DE MÚSICA -->
+<!-- MÚSICA -->
 
 <button
-    id="musica"
+    id="botonMusica"
     onclick="alternarMusica()">
     🎵
 </button>
 
-
-<!-- YOUTUBE OCULTO -->
-
 <iframe
-    id="youtube"
-    width="1"
-    height="1"
-    style="
-        position:fixed;
-        left:-100px;
-        bottom:-100px;
-        opacity:0;
-    "
-    allow="autoplay">
+    id="musica"
+    width="0"
+    height="0"
+    src=""
+    allow="autoplay"
+    style="position:absolute;border:0;">
 </iframe>
 
 
@@ -1205,34 +1220,21 @@ h2{
 
 function abrirInvitacion(){
 
-    const portada =
-        document.getElementById("portada");
+    document.getElementById("portada").style.display="none";
 
-    const invitacion =
-        document.getElementById("invitacion");
+    document.getElementById("invitacion").classList.add("activa");
 
-    const musica =
-        document.getElementById("musica");
+    document.getElementById("botonMusica").style.display="block";
 
-    const youtube =
-        document.getElementById("youtube");
+    document.body.style.overflow="auto";
 
+    document.getElementById("musica").src =
+    "https://www.youtube.com/embed/0aZ7lPQ5EXs?autoplay=1&loop=1&playlist=0aZ7lPQ5EXs&playsinline=1";
 
-    invitacion.classList.add("activa");
-
-
-    youtube.src =
-    "https://www.youtube.com/embed/0aZ7lPQ5EXs?autoplay=1&loop=1&playlist=0aZ7lPQ5EXs&playsinline=1&rel=0";
-
-
-    musica.classList.add("visible");
-
-
-    portada.classList.add("oculta");
-
-
-    document.body.style.overflowY="auto";
-
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
@@ -1240,36 +1242,29 @@ function abrirInvitacion(){
    MÚSICA
 ========================= */
 
-let musicaActiva=true;
+let musicaEncendida=true;
 
 function alternarMusica(){
 
-    const youtube =
-        document.getElementById("youtube");
+    const iframe=document.getElementById("musica");
 
-    const boton =
-        document.getElementById("musica");
+    if(musicaEncendida){
 
+        iframe.src="";
 
-    if(musicaActiva){
+        musicaEncendida=false;
 
-        youtube.src="";
-
-        boton.innerHTML="🔇";
-
-        musicaActiva=false;
+        document.getElementById("botonMusica").textContent="🔇";
 
     }else{
 
-        youtube.src =
-        "https://www.youtube.com/embed/0aZ7lPQ5EXs?autoplay=1&loop=1&playlist=0aZ7lPQ5EXs&playsinline=1&rel=0";
+        iframe.src=
+        "https://www.youtube.com/embed/0aZ7lPQ5EXs?autoplay=1&loop=1&playlist=0aZ7lPQ5EXs&playsinline=1";
 
-        boton.innerHTML="🎵";
+        musicaEncendida=true;
 
-        musicaActiva=true;
-
+        document.getElementById("botonMusica").textContent="🎵";
     }
-
 }
 
 
@@ -1277,101 +1272,263 @@ function alternarMusica(){
    CUENTA REGRESIVA
 ========================= */
 
-const fechaFiesta =
+const fechaEvento =
 new Date("2027-01-13T12:00:00-03:00").getTime();
-
 
 function actualizarCuenta(){
 
-    const ahora =
-        new Date().getTime();
+    const ahora=new Date().getTime();
 
-    const diferencia =
-        fechaFiesta - ahora;
+    const diferencia=fechaEvento-ahora;
 
+    if(diferencia<=0){
 
-    if(diferencia <= 0){
-
-        document.getElementById("dias").innerText="0";
-        document.getElementById("horas").innerText="0";
-        document.getElementById("minutos").innerText="0";
-        document.getElementById("segundos").innerText="0";
+        document.getElementById("dias").textContent="00";
+        document.getElementById("horas").textContent="00";
+        document.getElementById("minutos").textContent="00";
+        document.getElementById("segundos").textContent="00";
 
         return;
     }
 
+    const dias=Math.floor(
+        diferencia/(1000*60*60*24)
+    );
 
-    const dias =
-        Math.floor(
-            diferencia /
-            (1000 * 60 * 60 * 24)
-        );
+    const horas=Math.floor(
+        (diferencia%(1000*60*60*24))/
+        (1000*60*60)
+    );
 
+    const minutos=Math.floor(
+        (diferencia%(1000*60*60))/
+        (1000*60)
+    );
 
-    const horas =
-        Math.floor(
-            (diferencia %
-            (1000 * 60 * 60 * 24))
-            /
-            (1000 * 60 * 60)
-        );
+    const segundos=Math.floor(
+        (diferencia%(1000*60))/1000
+    );
 
+    document.getElementById("dias").textContent=
+        String(dias).padStart(2,"0");
 
-    const minutos =
-        Math.floor(
-            (diferencia %
-            (1000 * 60 * 60))
-            /
-            (1000 * 60)
-        );
+    document.getElementById("horas").textContent=
+        String(horas).padStart(2,"0");
 
+    document.getElementById("minutos").textContent=
+        String(minutos).padStart(2,"0");
 
-    const segundos =
-        Math.floor(
-            (diferencia %
-            (1000 * 60))
-            /
-            1000
-        );
-
-
-    document.getElementById("dias").innerText=dias;
-    document.getElementById("horas").innerText=horas;
-    document.getElementById("minutos").innerText=minutos;
-    document.getElementById("segundos").innerText=segundos;
-
+    document.getElementById("segundos").textContent=
+        String(segundos).padStart(2,"0");
 }
-
-
-setInterval(actualizarCuenta,1000);
 
 actualizarCuenta();
 
+setInterval(actualizarCuenta,1000);
+
 
 /* =========================
-   ANIMALES
+   SONIDOS DE ANIMALES
 ========================= */
 
-function saludar(animal){
+let audioContext;
 
-    const mensajes={
+function iniciarAudio(){
 
-        "🐄":"¡Muuuu! 🐄💚",
-        "🐷":"¡Oinc oinc! 🐷💚",
-        "🐔":"¡Cocorocó! 🐔💚",
-        "🐑":"¡Beee! 🐑💚",
-        "🐴":"¡Hiiii! 🐴💚",
-        "🐥":"¡Pío pío! 🐥💚"
+    if(!audioContext){
 
-    };
+        audioContext =
+        new (window.AudioContext ||
+        window.webkitAudioContext)();
 
-    alert(mensajes[animal]);
+    }
 
+    if(audioContext.state==="suspended"){
+        audioContext.resume();
+    }
+}
+
+
+function tono(
+    frecuencia,
+    duracion,
+    tipo="sine",
+    volumen=.15
+){
+
+    iniciarAudio();
+
+    const oscilador=
+    audioContext.createOscillator();
+
+    const ganancia=
+    audioContext.createGain();
+
+    oscilador.type=tipo;
+
+    oscilador.frequency.setValueAtTime(
+        frecuencia,
+        audioContext.currentTime
+    );
+
+    ganancia.gain.setValueAtTime(
+        volumen,
+        audioContext.currentTime
+    );
+
+    ganancia.gain.exponentialRampToValueAtTime(
+        .001,
+        audioContext.currentTime+duracion
+    );
+
+    oscilador.connect(ganancia);
+    ganancia.connect(audioContext.destination);
+
+    oscilador.start();
+
+    oscilador.stop(
+        audioContext.currentTime+duracion
+    );
+}
+
+
+function sonidoAnimal(animal){
+
+    iniciarAudio();
+
+    if(animal==="vaca"){
+
+        tono(180,.7,"sawtooth",.2);
+
+        setTimeout(()=>{
+            tono(130,.8,"sawtooth",.18);
+        },300);
+
+    }
+
+    if(animal==="gallina"){
+
+        tono(700,.12,"square",.12);
+
+        setTimeout(()=>{
+            tono(900,.12,"square",.12);
+        },130);
+
+        setTimeout(()=>{
+            tono(650,.18,"square",.12);
+        },260);
+
+    }
+
+    if(animal==="cerdo"){
+
+        tono(320,.18,"sawtooth",.12);
+
+        setTimeout(()=>{
+            tono(280,.22,"sawtooth",.12);
+        },180);
+
+        setTimeout(()=>{
+            tono(350,.15,"sawtooth",.12);
+        },400);
+
+    }
+
+    if(animal==="oveja"){
+
+        tono(520,.35,"sine",.16);
+
+        setTimeout(()=>{
+            tono(430,.45,"sine",.15);
+        },300);
+
+    }
+
+    if(animal==="caballo"){
+
+        tono(180,.1,"square",.12);
+
+        setTimeout(()=>{
+            tono(240,.1,"square",.12);
+        },120);
+
+        setTimeout(()=>{
+            tono(310,.12,"square",.12);
+        },240);
+
+        setTimeout(()=>{
+            tono(220,.2,"square",.12);
+        },360);
+
+    }
+
+    if(animal==="pato"){
+
+        tono(450,.18,"square",.14);
+
+        setTimeout(()=>{
+            tono(380,.2,"square",.14);
+        },190);
+
+        setTimeout(()=>{
+            tono(450,.15,"square",.14);
+        },400);
+
+    }
 }
 
 
 /* =========================
-   BLOQUEO INICIAL
+   SCROLL REVEAL
+========================= */
+
+const secciones =
+document.querySelectorAll(".seccion");
+
+const observer =
+new IntersectionObserver(
+    entries=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.animate(
+                    [
+                        {
+                            opacity:0,
+                            transform:"translateY(25px)"
+                        },
+                        {
+                            opacity:1,
+                            transform:"translateY(0)"
+                        }
+                    ],
+                    {
+                        duration:700,
+                        easing:"ease-out",
+                        fill:"forwards"
+                    }
+                );
+
+                observer.unobserve(entry.target);
+            }
+
+        });
+
+    },
+    {
+        threshold:.12
+    }
+);
+
+secciones.forEach(
+    seccion=>observer.observe(seccion)
+);
+
+
+/* =========================
+   BLOQUEAR SCROLL EN PORTADA
 ========================= */
 
 document.body.style.overflow="hidden";
